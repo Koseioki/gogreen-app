@@ -1,0 +1,671 @@
+/* ---------- Root Variables ---------- */
+:root {
+  /* --green: rgb(38, 76, 89);
+  --dark-green: rgb(9, 47, 59);
+  --light-green: rgb(172, 198, 201);
+  --light-grey: #f1f1f4;
+  --text-color-danger: #f44250;
+  --text-color-dark: #333;
+  --text-color-light: #f1f1f1;
+  --white: #f1f1f1; */
+  /* Kosei: transferring the colour palette from Figma */
+  --text: #1c1c1c;
+  --white: #ffffff;
+  --grey: #e5e5e5;
+  --green: #567845;
+  --brown: #6b4c35;
+  --light-green: #bbc9b5;
+}
+
+/* ---------- Global Styling ---------- */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+html {
+  background-color: var(--white);
+  color: var(--text);
+  font-family: "Nunito", sans-serif;
+  font-weight: regular;
+  font-size: 1rem;
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.drop-shadow {
+  box-shadow: 0 0.25rem 1rem hsla(0, 0%, 0%, 0.2);
+}
+
+/* ---------- Typography ---------- */
+h1 {
+  font-size: 1.25rem;
+  text-align: center;
+  border-bottom: #dddddd 0.125rem solid;
+  padding: 1rem 0;
+  background-color: var(--white);
+  margin: 0;
+  width: 100%;
+  font-weight: bold;
+  /* position: -webkit-sticky; */
+  /* line-height: 1; */
+}
+
+h2,
+h3 {
+  font-weight: bold;
+  /* margin: 0; */
+  /* letter-spacing: 0.1px; */
+}
+
+/* p {
+  margin: 0;
+  line-height: ;
+} */
+
+/* ---------- Link Styling ---------- */
+a {
+  color: var(--green);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: var(--dark-green);
+}
+
+/* ---------- Form, Input, and Button Styling ---------- */
+textarea,
+input,
+button,
+select {
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  background-color: white;
+  line-height: 1.5;
+  margin: 0;
+}
+
+button {
+  color: var(--white);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 1em 2em;
+  background-color: var(--green);
+  transition: 0.5s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: var(--light-green);
+  color: var(--green);
+}
+
+textarea:hover,
+input:hover,
+button:hover {
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.6), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+}
+
+button:active {
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.4);
+  transform: translateY(1px);
+}
+
+form[action$="destroy"] button,
+.btn-cancel,
+.btn-delete {
+  background-color: var(--white);
+  color: #f44250;
+}
+
+form[action$="destroy"] button:hover,
+.btn-cancel:hover,
+.btn-delete:hover {
+  background-color: #f44250;
+  color: var(--white);
+}
+
+/* ---------- Form Specific Styling ---------- */
+form input {
+  width: 100%;
+}
+
+form .btns {
+  grid-column: 2;
+}
+
+form img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1em;
+  align-items: center;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  padding: 1.5em;
+  background-color: var(--white);
+  transition: 0.5s;
+  animation: fadeIn 0.5s;
+  border-radius: 8px;
+}
+
+#sign-in-form,
+#sign-up-form {
+  width: 35rem;
+}
+
+/* ---------- Button Group ---------- */
+.btns {
+  display: flex;
+  gap: 0.5em;
+}
+
+.container > .btns {
+  margin: 1em 0;
+}
+
+/* ---------- Navigation Styling ---------- */
+nav {
+  z-index: 100;
+  background-color: var(--green);
+  padding: 0.5rem 0;
+  /* display: grid; */
+  /* position: fixed; */
+  /* bottom: 0; */
+  /* padding: 1em 2em; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* gap: 1em; */
+  text-align: center;
+}
+
+/* Kosei: responsive nav */
+@media (min-width: 40rem) {
+  nav {
+    top: 0;
+    /* position: fixed; */
+  }
+
+  /* nav a{
+    display: block;
+  } */
+}
+
+/* Kosei: move the nav to the bottom when smaller screens */
+@media (max-width: 40rem) {
+  nav {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: fixed;
+  }
+  /* 
+  nav a {
+    display: inline-block;
+  } */
+}
+
+nav a {
+  display: inline-block;
+  /* justify-content: space-between; */
+  width: 30%;
+  max-width: 4rem;
+  aspect-ratio: 1/1;
+  /* background-color: red; */
+  color: var(--white);
+  text-align: center;
+  padding: 0.5rem;
+  text-decoration: none;
+  /* letter-spacing: 0.1em; */
+  /* text-transform: uppercase; */
+  /* border: 2px solid var(--green); */
+  /* font-weight: 500; */
+  font-size: 0.75rem;
+  /* border-radius: 8px; */
+  /* transition: 0.5s; */
+}
+/* Connor Nav Styling */
+.nav-dual-coding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-dual-coding img {
+  margin-bottom: 0.25rem; /* Adjust the spacing between the icon and the text */
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+
+nav a:hover {
+  /* background-color: var(--light-green); */
+  outline: 0.125rem solid var(--white);
+  color: var(--white);
+}
+
+nav a.active {
+  border-bottom: 0.25rem solid var(--white);
+  color: var(--white);
+ 
+}
+
+/* ---------- Page Styling ---------- */
+.page {
+  /* animation: fadeIn 0.5s; */
+  /* padding: 140px 2em 2em; */
+  padding: 1rem;
+  max-width: 40rem;
+  margin: auto;
+  padding-bottom: 10rem;
+  /* justify-content: center; */
+
+}
+
+/* ---------- Container Styling ---------- */
+.container {
+  /* max-width: 700px; */
+  margin: auto;
+}
+
+/* ---------- Grid Container Styling ---------- */
+.timeline-container {
+  display: flex;
+  justify-content: center;
+}
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  /* border: 1px solid red; */
+  width: 100%;
+  max-width: 40rem;
+}
+
+/* @media (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+} */
+
+.grid > .post-card {
+  cursor: pointer;
+}
+
+/* ---------- Grid Filter Styling ---------- */
+.grid-filter {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1em;
+  padding: 1em;
+  background-color: var(--white);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  margin: 0 0 1em;
+  align-items: center;
+}
+
+.grid-filter select {
+  width: 100%;
+  padding: 1.1rem;
+}
+
+.grid-filter input,
+.grid-filter select {
+  margin: 1em 0 0;
+}
+
+/* ---------- Post Card Styling ---------- */
+
+/* Connor here peeps */
+.post-card {
+  /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); */
+  padding: 1rem;
+  margin-bottom: 2rem; /* Spacing between the cards */
+  background-color: var(--white);
+  /* transition: 0.5s; */
+  /* animation: fadeIn 0.5s; */
+  cursor: pointer;
+  border-radius: 0.75rem;
+  width: 100%;
+  /* border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  position: relative; */
+}
+
+.post-card:hover {
+  box-shadow: 0 8px 16px 0 var(--green);
+}
+
+.post-image {
+  width: 100%;
+  /* height: 200px; */
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  /* width: 100%;
+  height: auto;
+  border-radius: 8px; */
+}
+
+.post-card h2 {
+  margin: 1rem 0;
+}
+
+.post-card .title {
+  margin: 0;
+}
+
+/* ---------- Avatar Styling ---------- */
+.avatar {
+  display: flex;
+  align-items: center;
+  /* margin: 0 0 1.2rem; */
+  text-align: left;
+}
+
+.avatar span {
+  margin: 0 0 0 1rem;
+}
+
+.avatar h3,
+.avatar p {
+  margin: 0;
+  /* line-height: 1.2; */
+}
+
+.post-card .avatar img,
+.avatar-image{
+  width: 100%;
+  max-width: 3rem;
+  aspect-ratio: 1/1;
+  /* max-width: 50px;
+  max-height: 50px; */
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-image{
+  width: 100%;
+  max-width: 5rem;
+  aspect-ratio: 1/1;
+
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ---------- User Page Styling ---------- */
+#user-page .post-card > img {
+  height: auto;
+}
+
+#user-page .btns {
+  padding: 1em 0;
+}
+
+/* ---------- Login Form Styling ---------- */
+#sign-in-page,
+#sign-up-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+
+.error-message {
+  color: var(--text-color-danger);
+  margin-top: 10px;
+  grid-column: 2;
+}
+
+.hide {
+  display: none;
+}
+
+.image-preview {
+  cursor: pointer;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Kosei: new reptile popup */
+.popup {
+  display: none;
+  background-color: var(--light-green);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 1.25rem;
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.popup h2{
+  margin: 0;
+  font-size: 1rem;
+}
+
+.popup p{
+  margin: 0;
+}
+
+.popup img{
+  height: 1rem;
+  width: 1rem;
+  /* padding: 1rem; */
+}
+
+/* post footer (hashtags) */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.hashtags {
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.post-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.post-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* search bar */
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Kosei: skip button */
+.skip-button{
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--white);
+  color: var(--text);
+  width: 100%;
+  position: absolute;
+  top: -10rem;
+}
+.skip-button:focus{
+  top: 0rem;
+}
+
+
+/* Connor doing vets page styling thing */
+
+.vets-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh; /* Ensures the container takes the full height of the viewport */
+}
+
+.vets-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 2rem;
+}
+
+.vet-card {
+    width: 20rem; 
+    height: auto; 
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.vet-card:hover {
+    transform: translateY(-0.5rem); /* Slightly press the card */
+    background-color: var(--light-green); /* Apply the light green background on hover */
+}
+
+.vet-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.vet-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; /* Smaller gap between location and specialisation */
+}
+
+.vet-card p {
+    margin: 0.5rem 0; /* General margin for paragraphs */
+}
+
+
+/* Vet page styling Connie */
+
+.vet-details-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.vet-details-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.vet-details-page img.vet-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.vet-details-page .vet-details-section {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.vet-details-page p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.vet-details-page p strong {
+  font-weight: bold;
+}
+
+.vet-details-page ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vet-details-page ul li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.vet-details-page a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.vet-details-page a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 1rem 0;
+}
+
