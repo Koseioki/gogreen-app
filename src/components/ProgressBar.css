@@ -1,0 +1,14 @@
+.progress-bar {
+    width: 100%;
+    height: 1rem;
+    border-radius: 1.25rem;
+    background-color: var(--white-text);
+    outline: 0.125rem var(--white-text) solid;
+    
+}
+.progress-bar-fill {
+    background-color: var(--navigation-purple);
+    height: 1rem;
+    border-radius: 1.25rem;
+    transition: 0.5s;
+}

@@ -1,0 +1,36 @@
+/* ----- face picking screen ----- */
+
+.face-expression{
+    font-size: 0.75rem;
+    background: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.face-expression:focus-within{
+    outline: #fdf5e6 0.125rem solid; /* oldlace */
+}
+
+/* Hide the browser's default radio button */
+.face-expression input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+.face-expression div{
+    /* border: red 1px solid; */
+    display: block;
+}
+
+.face-expression label{
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.face-expression input:checked + label{
+    outline: var(--white-text) 0.125rem solid;
+    border-radius: 1.25rem;
+}

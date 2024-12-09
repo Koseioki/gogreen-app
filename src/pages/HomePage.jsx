@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 export default function HomePage() {
@@ -11,9 +10,9 @@ export default function HomePage() {
         <p>Here is a random sentence of the day.</p>
       </aside>
 
-      <NavLink to="/">
+      <NavLink to="/new-entry">
         <div className="button">
-          Write today's journal
+          Write today&apos;s journal
         </div>
       </NavLink>
       <NavLink to="/">

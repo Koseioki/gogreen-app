@@ -7,7 +7,7 @@ import UserAvatar from "./UserAvatar";
 // import favouriteIcon from "../images/favourite.svg";
 import commentIcon from "../images/comments.svg";
 import "../firebase-config";
-import LikeButton from "./LikeButton";
+// import LikeButton from "./LikeButton";
 
 
 // It is a me, Connor figuring out the tags, comments and likes to see if I can get them to a working state
