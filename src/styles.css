@@ -1,20 +1,12 @@
 /* ---------- Root Variables ---------- */
 :root {
-  /* --green: rgb(38, 76, 89);
-  --dark-green: rgb(9, 47, 59);
-  --light-green: rgb(172, 198, 201);
-  --light-grey: #f1f1f4;
-  --text-color-danger: #f44250;
-  --text-color-dark: #333;
-  --text-color-light: #f1f1f1;
-  --white: #f1f1f1; */
-  /* Kosei: transferring the colour palette from Figma */
-  --text: #1c1c1c;
+  --white-text: #f3f3f3;
+  --black-text: #171717;
+  --deep-purple: #393a65;
+  --light-purple: #e5dbf5;
   --white: #ffffff;
-  --grey: #e5e5e5;
-  --green: #567845;
-  --brown: #6b4c35;
-  --light-green: #bbc9b5;
+  --orange: #ff8e5a;
+  --navigation-purple: #7f6aa1;
 }
 
 /* ---------- Global Styling ---------- */
@@ -30,19 +22,15 @@ html {
 
 body,
 html {
-  background-color: var(--white);
+  background-color: var(--deep-purple);
   color: var(--text);
-  font-family: "Nunito", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: regular;
   font-size: 1rem;
   height: 100%;
   line-height: 1.5;
   margin: 0;
   padding: 0;
-}
-
-.drop-shadow {
-  box-shadow: 0 0.25rem 1rem hsla(0, 0%, 0%, 0.2);
 }
 
 /* ---------- Typography ---------- */
@@ -99,18 +87,18 @@ select {
 }
 
 button {
-  color: var(--white);
+  background-color: var(--orange);
+  color: var(--black-text);
   font-weight: 500;
   cursor: pointer;
   padding: 1em 2em;
-  background-color: var(--green);
   transition: 0.5s;
   width: 100%;
 }
 
 button:hover {
-  background-color: var(--light-green);
-  color: var(--green);
+  /* background-color: var(--light-green);
+  color: var(--green); */
 }
 
 textarea:hover,
@@ -184,14 +172,8 @@ form {
 /* ---------- Navigation Styling ---------- */
 nav {
   z-index: 100;
-  background-color: var(--green);
+  background-color: var(--navigation-purple);
   padding: 0.5rem 0;
-  /* display: grid; */
-  /* position: fixed; */
-  /* bottom: 0; */
-  /* padding: 1em 2em; */
-  /* grid-template-columns: 1fr 1fr 1fr; */
-  /* gap: 1em; */
   text-align: center;
 }
 
