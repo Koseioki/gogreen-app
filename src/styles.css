@@ -6,6 +6,8 @@
   --light-purple: #e5dbf5;
   --white: #ffffff;
   --orange: #ff8e5a;
+  --orange-hover: #ffd2bd;
+
   --navigation-purple: #7f6aa1;
 }
 
@@ -44,16 +46,6 @@ h2{
   font-size: 1.25rem;
   font-weight: normal;
 }
-h3 {
-  /* font-weight: bold; */
-  /* margin: 0; */
-  /* letter-spacing: 0.1px; */
-}
-
-/* p {
-  margin: 0;
-  line-height: ;
-} */
 
 .speech-bubble{
   background-color: var(--white);
@@ -113,12 +105,26 @@ select {
   padding: 1rem;
   width: 100%;
   border-radius: 1.25rem;
+  transition: 0.1s;
+}
+
+.button:hover {
+  background-color: var(--orange-hover);
+  transition: 0.1s;
 }
 
 .sub-button {
   background-color: var(--deep-purple);
   color: var(--white-text);
   border: 0.125rem solid var(--orange);
+  transition: 0.1s;
+}
+
+.sub-button:hover {
+  background-color: var(--deep-purple);
+  color: var(--white-text);
+  border: 0.125rem solid var(--white-text);
+  transition: 0.1s;
 }
 
 button:hover {
