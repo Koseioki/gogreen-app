@@ -5,19 +5,16 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import "./firebase-config";
 import { auth } from "./firebase-config";
-import CreatePage from "./pages/CreatePage";
+
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
-import UpdatePage from "./pages/UpdatePage";
-import PostDetailPage from "./pages/PostDetailPage";
-import InfoPage from "./pages/InfoPage";
-import DiscoverPage from "./pages/DiscoverPage";
-import VetsPage from "./pages/VetsPage";
-import PartnersPage from "./pages/PartnersPage";
-import UserProfilePage from "./pages/UserProfilePage";
-import VetDetailsPage from "./pages/VetDetailsPage";
+
+
+import NewEntryPage from "./pages/NewEntryPage";
+
+import GuidedJournalPage from "./pages/GuidedJournalPage";
 
 export default function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth")); // start default value comes from localStorage
@@ -42,17 +39,18 @@ export default function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/create" element={<CreatePage />} />
+        {/* <Route path="/create" element={<CreatePage />} />
         <Route path="/posts/:postId" element={<PostDetailPage />} />
-        <Route path="/posts/:postId/edit" element={<UpdatePage />} />
+        <Route path="/posts/:postId/edit" element={<UpdatePage />} /> */}
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/info" element={<InfoPage />} />
-        <Route path="/discover" element={<DiscoverPage />} />
-        <Route path="/vets" element={<VetsPage />} />
+        {/* <Route path="/info" element={<InfoPage />} /> */}
+        <Route path="/new-entry" element={<NewEntryPage />} />
+        {/* <Route path="/vets" element={<VetsPage />} />
         <Route path="/vets/:vetId" element={<VetDetailsPage />} />
-        <Route path="/partners" element={<PartnersPage />} />
+        <Route path="/partners" element={<PartnersPage />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
-        <Route path="/:userId" element={<UserProfilePage />} />
+        {/* <Route path="/:userId" element={<UserProfilePage />} /> */}
+        <Route path="/guided-journal" element={<GuidedJournalPage />} />
       </Routes>
     </>
   );

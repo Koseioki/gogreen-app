@@ -23,7 +23,7 @@ html {
 body,
 html {
   background-color: var(--deep-purple);
-  color: var(--text);
+  color: var(--white-text);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: regular;
   font-size: 1rem;
@@ -36,20 +36,16 @@ html {
 /* ---------- Typography ---------- */
 h1 {
   font-size: 1.25rem;
-  text-align: center;
-  border-bottom: #dddddd 0.125rem solid;
-  padding: 1rem 0;
-  background-color: var(--white);
-  margin: 0;
-  width: 100%;
+
   font-weight: bold;
-  /* position: -webkit-sticky; */
-  /* line-height: 1; */
 }
 
-h2,
+h2{
+  font-size: 1.25rem;
+  font-weight: normal;
+}
 h3 {
-  font-weight: bold;
+  /* font-weight: bold; */
   /* margin: 0; */
   /* letter-spacing: 0.1px; */
 }
@@ -59,15 +55,39 @@ h3 {
   line-height: ;
 } */
 
+.speech-bubble{
+  background-color: var(--white);
+  color: var(--black-text);
+  padding: 1rem;
+  border-radius: 1.25rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	width: 0;
+	height: 0;
+	border: 1.25em solid transparent;
+	border-top-color: var(--white);
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -0.625rem;
+	margin-bottom: -1.25rem;
+}
+
 /* ---------- Link Styling ---------- */
 a {
-  color: var(--green);
+  /* color: var(--green); */
   text-decoration: none;
-  transition: 0.5s;
+  /* transition: 0.5s; */
 }
 
 a:hover {
-  color: var(--dark-green);
+  /* color: var(--dark-green); */
 }
 
 /* ---------- Form, Input, and Button Styling ---------- */
@@ -86,14 +106,19 @@ select {
   margin: 0;
 }
 
-button {
+.button {
   background-color: var(--orange);
   color: var(--black-text);
-  font-weight: 500;
   cursor: pointer;
-  padding: 1em 2em;
-  transition: 0.5s;
+  padding: 1rem;
   width: 100%;
+  border-radius: 1.25rem;
+}
+
+.sub-button {
+  background-color: var(--deep-purple);
+  color: var(--white-text);
+  border: 0.125rem solid var(--orange);
 }
 
 button:hover {
@@ -169,86 +194,6 @@ form {
   margin: 1em 0;
 }
 
-/* ---------- Navigation Styling ---------- */
-nav {
-  z-index: 100;
-  background-color: var(--navigation-purple);
-  padding: 0.5rem 0;
-  text-align: center;
-}
-
-/* Kosei: responsive nav */
-@media (min-width: 40rem) {
-  nav {
-    top: 0;
-    /* position: fixed; */
-  }
-
-  /* nav a{
-    display: block;
-  } */
-}
-
-/* Kosei: move the nav to the bottom when smaller screens */
-@media (max-width: 40rem) {
-  nav {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    position: fixed;
-  }
-  /* 
-  nav a {
-    display: inline-block;
-  } */
-}
-
-nav a {
-  display: inline-block;
-  /* justify-content: space-between; */
-  width: 30%;
-  max-width: 4rem;
-  aspect-ratio: 1/1;
-  /* background-color: red; */
-  color: var(--white);
-  text-align: center;
-  padding: 0.5rem;
-  text-decoration: none;
-  /* letter-spacing: 0.1em; */
-  /* text-transform: uppercase; */
-  /* border: 2px solid var(--green); */
-  /* font-weight: 500; */
-  font-size: 0.75rem;
-  /* border-radius: 8px; */
-  /* transition: 0.5s; */
-}
-/* Connor Nav Styling */
-.nav-dual-coding {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.nav-dual-coding img {
-  margin-bottom: 0.25rem; /* Adjust the spacing between the icon and the text */
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-
-nav a:hover {
-  /* background-color: var(--light-green); */
-  outline: 0.125rem solid var(--white);
-  color: var(--white);
-}
-
-nav a.active {
-  border-bottom: 0.25rem solid var(--white);
-  color: var(--white);
- 
-}
 
 /* ---------- Page Styling ---------- */
 .page {
@@ -651,3 +596,12 @@ hr {
   margin: 1rem 0;
 }
 
+/* ----- Link cards in generel ----- */
+.link-card {
+  background-color: var(--light-purple);
+  color: var(--black-text);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 1.25rem;
+  cursor: pointer;
+}

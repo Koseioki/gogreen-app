@@ -1,0 +1,65 @@
+/* ---------- Navigation Styling ---------- */
+nav {
+    z-index: 100;
+    background-color: var(--navigation-purple);
+    /* padding: 0.5rem 0; */
+    text-align: center;
+
+}
+
+@media (min-width: 40rem) {
+    nav {
+        top: 0;
+    }
+}
+
+/* move the nav to the bottom when smaller screens */
+@media (max-width: 40rem) {
+    nav {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        position: fixed;
+    }
+}
+
+nav a {
+    display: inline-block;
+    padding: 1rem;
+    /* width: 30%; */
+    /* max-width: 4rem; */
+    aspect-ratio: 1/1;
+    color: var(--white);
+    text-align: center;
+    /* text-decoration: none; */
+    font-size: 0.75rem;
+
+}
+
+.nav-dual-coding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-dual-coding img {
+    margin-bottom: 0.25rem;
+    /* Adjust the spacing between the icon and the text */
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+nav a:hover {
+    /* background-color: var(--light-green); */
+    outline: 0.125rem solid var(--white);
+    color: var(--white);
+}
+
+nav a.active {
+    border-bottom: 0.25rem solid var(--white);
+    color: var(--white);
+
+}

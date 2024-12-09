@@ -1,6 +1,5 @@
-//Consuelo, Connor and Kosei
-
 import { NavLink } from "react-router-dom";
+import "./Nav.css";
 import home from "../images/home.svg";
 import discover from "../images/discover.svg";
 import post from "../images/post.svg";
@@ -16,31 +15,25 @@ export default function Nav() {
       <nav>
         <NavLink to="/">
           <div className="nav-dual-coding">
-            <img src={home} alt="Home Icon" />
+            <img src={home} alt="" />
             <span>Home</span>
           </div>
         </NavLink>
-        <NavLink to="/discover">
+        <NavLink to="/new-entry">
           <div className="nav-dual-coding">
-            <img src={discover} alt="Discover Icon" />
-            <span>Discover</span>
+            <img src={discover} alt="" />
+            <span>New entry</span>
           </div>
         </NavLink>
-        <NavLink to="/create">
+        <NavLink to="/">
           <div className="nav-dual-coding">
-            <img src={post} alt="Post Icon" />
-            <span>Post</span>
+            <img src={post} alt="" />
+            <span>My journal</span>
           </div>
         </NavLink>
-        <NavLink to="/info">
+        <NavLink to="/">
           <div className="nav-dual-coding">
-            <img src={info} alt="Info Icon" />
-            <span>Info</span>
-          </div>
-        </NavLink>
-        <NavLink to="/profile">
-          <div className="nav-dual-coding">
-            <img src={profile} alt="Profile Icon" />
+            <img src={profile} alt="" />
             <span>Profile</span>
           </div>
         </NavLink>
