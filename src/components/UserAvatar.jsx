@@ -11,7 +11,7 @@ export default function UserAvatar({ uid }) {
         name: "User's Name",
         // title: "User's Title"
     });
-    const url = `https://reptile-app-ebad6-default-rtdb.firebaseio.com/users/${uid}.json`;
+    const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${uid}.json`;
 
     useEffect(() => {
         async function getUser() {

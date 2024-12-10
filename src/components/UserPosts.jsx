@@ -8,7 +8,7 @@ export default function UserPosts({ uid }) {
   useEffect(() => {
     async function getPosts() {
       // KOSEI: added {uid} in the Firebase rules
-      const url = `https://reptile-app-ebad6-default-rtdb.firebaseio.com/posts.json?orderBy="uid"&equalTo="${uid}"`;
+      const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/posts.json?orderBy="uid"&equalTo="${uid}"`;
       // mTo make this work, you must create an index on "uid" in Firebase Realtime Database Rules
       const response = await fetch(url);
       const data = await response.json();

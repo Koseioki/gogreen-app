@@ -1,11 +1,33 @@
 import { useNavigate } from "react-router-dom";
-
+import { auth } from "../firebase-config";
 
 export default function NewEntryPage() {
     const navigate = useNavigate();
 
-    function handleStartJournaling() {
-        navigate("/guided-journal");
+    console.log(auth.currentUser?.uid);
+    async function handleStartJournaling() {
+        async function createEntry(newEntry) {
+            const url = "https://gogreen-app-1d826-default-rtdb.firebaseio.com/entries.json";
+            const response = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(newEntry)
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log("New entry created: ", data);
+                // Navigate to /guided-journal with the new entry id
+                navigate(`/guided-journal/${data.name}`);
+            } else {
+                console.log("Sorry, something went wrong");
+            }
+        }
+
+        const newEntry = {
+            date: new Date().toISOString(),
+            uid: auth.currentUser.uid
+        };
+
+        createEntry(newEntry);
     }
 
     return (

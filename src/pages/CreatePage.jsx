@@ -8,7 +8,7 @@ export default function CreatePage() {
   async function createPost(newPost) {
     newPost.uid = auth.currentUser.uid; // authenticated user id
 
-    const url = "https://reptile-app-ebad6-default-rtdb.firebaseio.com/posts.json";
+    const url = "https://gogreen-app-1d826-default-rtdb.firebaseio.com/posts.json";
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(newPost)

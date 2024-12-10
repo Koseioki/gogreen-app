@@ -30,7 +30,7 @@ export default function SignUpPage() {
   }
 
   async function createUser(uid, mail) {
-    const url = `https://reptile-app-ebad6-default-rtdb.firebaseio.com/users/${uid}.json`;
+    const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${uid}.json`;
     const response = await fetch(url, {
       method: "PUT",
       body: JSON.stringify({ name, mail })

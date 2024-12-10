@@ -50,7 +50,7 @@ export default function App() {
         <Route path="/partners" element={<PartnersPage />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
         {/* <Route path="/:userId" element={<UserProfilePage />} /> */}
-        <Route path="/guided-journal" element={<GuidedJournalPage />} />
+        <Route path="/guided-journal/:entryId" element={<GuidedJournalPage />} />
       </Routes>
     </>
   );

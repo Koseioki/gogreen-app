@@ -5,12 +5,13 @@ const prompts = [
         type: 'radio',
         text: "How are you feeling today?",
         options: {
-            '😣': 'Very bad',
-            '🙁': 'Bad',
-            '😐': 'Neutral',
-            '🙂': 'Good',
-            '😊': 'Very good'
+            1: 'Very bad',
+            2: 'Bad',
+            3: 'Neutral',
+            4: 'Good',
+            5: 'Very good'
         }
+        // options: [1,2,3,4,5]
     },
 
     {

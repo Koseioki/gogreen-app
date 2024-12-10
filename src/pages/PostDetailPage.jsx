@@ -9,8 +9,8 @@ export default function PostDetailPage() {
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);
   const params = useParams();
-  const postUrl = `https://reptile-app-ebad6-default-rtdb.firebaseio.com/posts/${params.postId}.json`;
-  const commentsBaseUrl = `https://reptile-app-ebad6-default-rtdb.firebaseio.com/comments/`;
+  const postUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/posts/${params.postId}.json`;
+  const commentsBaseUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/comments/`;
 
   useEffect(() => {
     async function getPost() {

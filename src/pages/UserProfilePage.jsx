@@ -5,7 +5,7 @@ import UserPosts from '../components/UserPosts';
 
 export default function UserProfilePage() {
     const { userId } = useParams();
-    const userUrl = `https://reptile-app-ebad6-default-rtdb.firebaseio.com/users/${userId}.json`;
+    const userUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${userId}.json`;
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
