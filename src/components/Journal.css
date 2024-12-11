@@ -1,3 +1,10 @@
+/* This css is used for the Journal writing part */
+
+.prompts-headings{
+    font-size: 1rem;
+    font-weight: normal;
+}
+
 /* ----- face picking screen ----- */
 .face-expression{
     font-size: 0.75rem;

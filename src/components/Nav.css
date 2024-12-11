@@ -1,5 +1,7 @@
 /* ---------- Navigation Styling ---------- */
 nav {
+    margin: 0.5rem;
+    border-radius: 1.25rem;
     z-index: 100;
     background-color: var(--navigation-purple);
     /* padding: 0.5rem 0; */

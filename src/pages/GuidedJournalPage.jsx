@@ -10,7 +10,7 @@ export default function Journal() {
   const [currentStep, setCurrentStep] = useState(0);
   const navigate = useNavigate();
 
-  console.log(currentStep);
+  // console.log(currentStep);
 
   const handleBack = () => {
     // Move to the previous prompt
@@ -30,7 +30,9 @@ export default function Journal() {
       setCurrentStep(currentStep + 1);
     } else {
       // Optionally handle the end of the prompts, e.g., navigate to a summary page
-      console.log("All prompts completed!");
+      // console.log("All prompts completed!");
+      navigate("/");
+      alert("Today's entry is created");
     }
   };
 
