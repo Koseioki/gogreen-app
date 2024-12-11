@@ -7,13 +7,14 @@
   --white: #ffffff;
   --orange: #ff8e5a;
   --orange-hover: #ffd2bd;
-
   --navigation-purple: #7f6aa1;
+  
 }
 
 /* ---------- Global Styling ---------- */
 html {
   box-sizing: border-box;
+  
 }
 
 *,
@@ -397,88 +398,29 @@ form {
   }
 }
 
-/* Kosei: new reptile popup */
-.popup {
-  display: none;
-  background-color: var(--light-green);
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 1.25rem;
-  /* display: flex; */
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
 
-.popup h2{
-  margin: 0;
-  font-size: 1rem;
-}
 
-.popup p{
-  margin: 0;
-}
-
-.popup img{
-  height: 1rem;
-  width: 1rem;
-  /* padding: 1rem; */
-}
-
-/* post footer (hashtags) */
-.post-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.hashtags {
-  display: flex;
-  gap: 8px;
-}
-
-.tag {
-  background-color: #eee;
-  border-radius: 4px;
-  padding: 4px 8px;
-}
-
-.post-stats {
-  display: flex;
-  gap: 16px;
-}
-
-.post-stats span {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
 
 .icon {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-/* search bar */
-input[type="text"] {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 1rem 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+
 
 /* skip-to-conetnt button */
 .skip-to-content-button{
   text-align: center;
   padding: 1rem;
-  background-color: var(--white);
-  color: var(--text);
-  width: 100%;
+  background-color: var(--orange);
+  color: var(--black-text);
+  border-radius: 1.25rem;
+  /* border: 0.125rem solid var(--orange); */
+  /* width: 100%; */
   position: absolute;
   top: -10rem;
 }
+
 .skip-to-content-button:focus{
   top: 0rem;
 }
@@ -496,6 +438,10 @@ input[type="text"] {
   cursor: pointer;
 }
 
+.back-button:focus{
+  outline: 0.125rem var(--orange) solid;
+}
+
 /* ----- Link cards in generel ----- */
 .link-card {
   background-color: var(--light-purple);
@@ -504,4 +450,13 @@ input[type="text"] {
   margin: 1rem 0;
   border-radius: 1.25rem;
   cursor: pointer;
+}
+
+.link-card:hover{
+  background-color: var(--white);
+}
+
+.link-card:focus{
+  background-color: var(--white);
+  outline: 0.125rem var(--orange) solid;
 }

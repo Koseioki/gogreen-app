@@ -5,6 +5,9 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
   const [negative, setNegative] = useState("");
   const [positive, setPositive] = useState("");
+
+  // current input for adding new negative or positive
+  // const [currentInput, setCurrentInput] = useState([]);
   const entryUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/entries/${entryId}.json`;
   // console.log("mode = " + mood);
 
@@ -22,9 +25,6 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     } else if (currentStep === 3) {
       data = { positive };
     }
-    // console.log("data = " + data);
-
-    // console.log(currentStep + " " + mood + " " + negative + " " + positive);
     // then patch the data
     const response = await fetch(entryUrl, {
       method: "PATCH",
@@ -40,51 +40,60 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     event.preventDefault();
     let data = {};
     // check which step it is and set the data accordingly
-    if (currentStep === 0) {
-      data = { mood };
-    } else if (currentStep === 1) {
-      data = { negative: { negative } };
+    if (currentStep === 1) {
+      // negative is the text itself
+
+      console.log("negative = " + negative)
+      
+      // setCurrentInput([...currentInput, negative]);
+      // console.log("currentInput = " + currentInput)
+      data.negative = [negative];
+
+      const response = await fetch(entryUrl, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      });
     } else if (currentStep === 3) {
       data = { positive: { positive } };
     }
     // console.log(negative + " added");
 
-    const response = await fetch(entryUrl, {
-      method: "PATCH",
-      body: JSON.stringify(data),
-    });
+
   }
 
   return (
     <div>
       <h3 className="prompts-headings">{prompt.text}</h3>
 
-
       {/* the first step (face icons) */}
       {currentStep === 0 && (
-        <form onSubmit={handleSubmit} className="face-expression">
-          {/* map all the icons as radio buttons */}
-          {Object.entries(prompt.options).map((option, key) => (
-            <div key={key}>
-              <input
-                type="radio"
-                id={option[1]}
-                name="mood"
-                value={option[0]}
-                onChange={(e) => setMood(e.target.value)}
-              />
-              {/* option[0] is numbers (0-4), and option[1] is description (very bad, bad...)*/}
-              <label htmlFor={option[1]}>{option[1]}</label>
-            </div>
-          ))}
+        <form onSubmit={handleSubmit} className="journal-form">
+          <div className="mood-icons">
+            {/* map all the icons as radio buttons */}
+            {Object.entries(prompt.options).map((option, key) => (
+              <div key={key}>
+                <input
+                  type="radio"
+                  id={option[1]}
+                  name="mood"
+                  value={option[0]}
+                  onChange={(e) => setMood(e.target.value)}
+                />
+                {/* option[0] is numbers (0-4), and option[1] is description (very bad, bad...)*/}
+                <label htmlFor={option[1]}>{option[1]}</label>
+
+              </div>
+            ))}
+          </div>
           <button type="submit" className="button">Next step</button>
         </form>
       )}
 
       {/* // the second and third steps (text areas) */}
       {(currentStep === 1 || currentStep === 3) && (
-        <form onSubmit={handleSubmit}>
+        <form className="journal-form" onSubmit={handleSubmit}>
 
+<div className="journal-form-textarea-button-container">
           <textarea
             // if currentStep = 1, set the name and id to negative, otherwise set to positive
             // not a great logic though
@@ -102,6 +111,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
             }
           ></textarea>
           <button type="button" className="button" onClick={handleAdd}>Add</button>
+          </div>
           <button type="submit" className="button">Next step</button>
         </form>
       )}
