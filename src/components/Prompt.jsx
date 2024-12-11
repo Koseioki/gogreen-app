@@ -1,17 +1,19 @@
 import "./Journal.css";
 import { useState } from "react";
 export default function Prompt({ entryId, prompt, onNext }) {
+  
   const [mood, setMood] = useState("");
   const entryUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/entries/${entryId}.json`;
-  console.log(mood);
+  // console.log(mood);
 
   async function handleClick() {
     // patch the answer to the entry
     const response = await fetch(entryUrl, {
       method: "PATCH",
       body: JSON.stringify({ "mood": mood })
+      
     });
-    if (!response.ok) {
+    if (response.ok) {
     onNext();
     }
   }
@@ -43,7 +45,7 @@ export default function Prompt({ entryId, prompt, onNext }) {
         // For text prompts, just show a "Next" button
         <p>text</p>
       )}
-      <button className="button" onClick={handleClick}>Next</button>
+      <button className="button" onClick={handleClick}>Next step</button>
     </div>
   );
 }
