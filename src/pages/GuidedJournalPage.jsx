@@ -42,7 +42,6 @@ export default function Journal() {
         <button className="skip-button" onClick={handleNext}>Skip this step</button>
       </div>
       <h1>Guided Journal</h1>
-      <p>Entry id: {entryId}</p>
       <ProgressBar currentStep={currentStep + 1} totalSteps={prompts.length} />
       <Prompt
       entryId={entryId}

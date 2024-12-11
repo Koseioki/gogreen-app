@@ -12,6 +12,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     event.preventDefault();
     let data = {};
 
+    // check which step it is and set the data accordingly
     if (currentStep === 0) {
       data = { mood };
     } else if (currentStep === 1) {
@@ -20,25 +21,26 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
       data = { positive };
     }
 
+    // then patch the data
     const response = await fetch(entryUrl, {
       method: "PATCH",
       body: JSON.stringify(data),
     });
 
     if (response.ok) {
-      // if (currentPrompt < 2) {
-      //   setCurrentPrompt(currentPrompt + 1);
-      // } else {
         onNext();
-      // }
     }
   }
 
   return (
     <div>
       <h3>{prompt.text}</h3>
+
+
+      {/* the first step (face icons) */}
       {currentStep === 0 ? (
         <form onSubmit={handleSubmit} className="face-expression">
+          {/* map all the icons as radio buttons */}
           {Object.entries(prompt.options).map((option, key) => (
             <div key={key}>
               <input
@@ -48,18 +50,31 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
                 value={option[0]}
                 onChange={(e) => setMood(e.target.value)}
               />
+              {/* option[0] is numbers (0-4), and option[1] is description (very bad, bad...)*/}
               <label htmlFor={option[1]}>{option[1]}</label>
             </div>
           ))}
           <button type="submit" className="button">Next step</button>
         </form>
+
+
       ) : (
+
+
+        // the second and third steps (text areas)
         <form onSubmit={handleSubmit}>
+
           <textarea
+          // if currentStep = 1, set the name and id to negative, otherwise set to positive
+          // not a great logic though
             name={currentStep === 1 ? "negative" : "positive"}
             id={currentStep === 1 ? "negative" : "positive"}
-            cols="30"
-            rows="10"
+            // cols="30"
+            // rows="10"
+            placeholder="Write here..."
+
+            // if currentStep = 1, set the value to negative, otherwise set to positive
+            // not a great logic though
             onChange={(e) =>
               currentStep === 1
                 ? setNegative(e.target.value)
