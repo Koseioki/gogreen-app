@@ -23,12 +23,33 @@ export default function HomePage() {
     getUser();
   }, [url]);
 
+  //Display greetings depending on the time
+  const today = new Date();
+  const hour = today.getHours();
+  let greeting = "";
+  if (hour < 12) {
+    greeting = "Good morning";
+  } else if (hour < 18) {
+    greeting = "Good afternoon";
+  } else {
+    greeting = "Good evening";
+  }
+
+  //Display a random sentence of the day
+  const sentences = [
+    "Take a deep breath. Your mind deserves a little care today.",
+    "A gentle reminder to take things at your own pace. How about a moment of journaling today?",
+    "It’s okay to pause. How about sharing what’s on your heart?"
+  ];
+  const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
+
+
   return (
     <main className="page" id="main-content">
       <h1>Home</h1>
       <aside className="speech-bubble">
-        <h2>Some sort of greetings, {name}.</h2>
-        <p>Here is a random sentence of the day.</p>
+        <h2>{greeting}, {name}.</h2>
+        <p>{randomSentence}</p>
       </aside>
 
       <NavLink to="/new-entry">

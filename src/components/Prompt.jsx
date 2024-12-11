@@ -5,13 +5,14 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
   const [negative, setNegative] = useState("");
   const [positive, setPositive] = useState("");
-
   const entryUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/entries/${entryId}.json`;
+  // console.log("mode = " + mood);
 
   async function handleSubmit(event) {
-
     event.preventDefault();
     let data = {};
+
+    console.log(mood)
 
     // check which step it is and set the data accordingly
     if (currentStep === 0) {
@@ -21,8 +22,9 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     } else if (currentStep === 3) {
       data = { positive };
     }
+    // console.log("data = " + data);
 
-    console.log(currentStep + " " + mood + " " + negative + " " + positive);
+    // console.log(currentStep + " " + mood + " " + negative + " " + positive);
     // then patch the data
     const response = await fetch(entryUrl, {
       method: "PATCH",
@@ -32,6 +34,25 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     if (response.ok) {
       onNext();
     }
+  }
+
+  async function handleAdd(event) {
+    event.preventDefault();
+    let data = {};
+    // check which step it is and set the data accordingly
+    if (currentStep === 0) {
+      data = { mood };
+    } else if (currentStep === 1) {
+      data = { negative: { negative } };
+    } else if (currentStep === 3) {
+      data = { positive: { positive } };
+    }
+    // console.log(negative + " added");
+
+    const response = await fetch(entryUrl, {
+      method: "PATCH",
+      body: JSON.stringify(data),
+    });
   }
 
   return (
@@ -60,9 +81,8 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
         </form>
       )}
 
+      {/* // the second and third steps (text areas) */}
       {(currentStep === 1 || currentStep === 3) && (
-
-        // the second and third steps (text areas)
         <form onSubmit={handleSubmit}>
 
           <textarea
@@ -70,10 +90,9 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
             // not a great logic though
             name={currentStep === 1 ? "negative" : "positive"}
             id={currentStep === 1 ? "negative" : "positive"}
-            // cols="30"
-            // rows="10"
-            placeholder="Write here..."
-
+            // name="aaa"
+            // id="aaa"
+            placeholder={currentStep === 1 ? "What made you feel overwhelmed?" : "What made you feel good today, no matter how small?"}
             // if currentStep = 1, set the value to negative, otherwise set to positive
             // not a great logic though
             onChange={(e) =>
@@ -82,6 +101,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
                 : setPositive(e.target.value)
             }
           ></textarea>
+          <button type="button" className="button" onClick={handleAdd}>Add</button>
           <button type="submit" className="button">Next step</button>
         </form>
       )}
@@ -96,7 +116,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
         <button className="button" onClick={onNext}>Complete this entry</button>
       )}
 
-{currentStep === 6 && (
+      {currentStep === 6 && (
         <button className="button" onClick={onNext}>Back to home</button>
       )}
 
