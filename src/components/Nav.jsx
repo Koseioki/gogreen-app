@@ -3,7 +3,7 @@ import "./Nav.css";
 import home from "../images/home.svg";
 import discover from "../images/discover.svg";
 import post from "../images/post.svg";
-import info from "../images/info.svg";
+// import info from "../images/info.svg";
 import profile from "../images/profile.svg";
 
 export default function Nav() {

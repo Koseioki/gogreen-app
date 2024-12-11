@@ -10,6 +10,8 @@ export default function Journal() {
   const [currentStep, setCurrentStep] = useState(0);
   const navigate = useNavigate();
 
+  console.log(currentStep);
+
   const handleBack = () => {
     // Move to the previous prompt
     if (currentStep > 0) {
@@ -42,7 +44,11 @@ export default function Journal() {
       <h1>Guided Journal</h1>
       <p>Entry id: {entryId}</p>
       <ProgressBar currentStep={currentStep + 1} totalSteps={prompts.length} />
-      <Prompt entryId={entryId} prompt={prompts[currentStep]} onNext={handleNext} />
+      <Prompt
+      entryId={entryId}
+      prompt={prompts[currentStep]}
+      onNext={handleNext}
+      currentStep={currentStep}/>
     </main>
   );
 }
