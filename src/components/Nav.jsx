@@ -9,7 +9,7 @@ import profile from "../images/profile.svg";
 export default function Nav() {
   return (
     <>
-      <a className="skip-button" href="#main-content">
+      <a className="skip-to-content-button" href="#main-content">
         Skip to Content
       </a>
       <nav>

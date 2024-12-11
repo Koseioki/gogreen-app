@@ -1,5 +1,4 @@
 /* ----- face picking screen ----- */
-
 .face-expression{
     font-size: 0.75rem;
     background: none;
@@ -9,9 +8,6 @@
     justify-content: space-between;
 }
 
-.face-expression:focus-within{
-    outline: #fdf5e6 0.125rem solid; /* oldlace */
-}
 
 /* Hide the browser's default radio button */
 .face-expression input {
@@ -33,4 +29,26 @@
 .face-expression input:checked + label{
     outline: var(--white-text) 0.125rem solid;
     border-radius: 1.25rem;
+}
+
+/* ----- skip button ----- */
+.skip-button{
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white-text);
+    box-shadow: none;
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.skip-button:hover{
+    text-decoration: underline;
+    box-shadow: none;
+}
+
+/* ----- Navigation (back and skip) */
+.back-skip-navigation{
+    display: flex;
+    justify-content: space-between;
 }

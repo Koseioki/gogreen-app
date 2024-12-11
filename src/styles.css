@@ -469,8 +469,8 @@ input[type="text"] {
   border-radius: 4px;
 }
 
-/* Kosei: skip button */
-.skip-button{
+/* skip-to-conetnt button */
+.skip-to-content-button{
   text-align: center;
   padding: 1rem;
   background-color: var(--white);
@@ -479,127 +479,21 @@ input[type="text"] {
   position: absolute;
   top: -10rem;
 }
-.skip-button:focus{
+.skip-to-content-button:focus{
   top: 0rem;
 }
 
-
-/* Connor doing vets page styling thing */
-
-.vets-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    min-height: 100vh; /* Ensures the container takes the full height of the viewport */
-}
-
-.vets-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    justify-items: center;
-    margin-top: 2rem;
-}
-
-.vet-card {
-    width: 20rem; 
-    height: auto; 
-    padding: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
-}
-
-.vet-card:hover {
-    transform: translateY(-0.5rem); /* Slightly press the card */
-    background-color: var(--light-green); /* Apply the light green background on hover */
-}
-
-.vet-card h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.vet-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem; /* Smaller gap between location and specialisation */
-}
-
-.vet-card p {
-    margin: 0.5rem 0; /* General margin for paragraphs */
-}
-
-
-/* Vet page styling Connie */
-
-.vet-details-page {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.vet-details-page h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.vet-details-page img.vet-image {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.vet-details-page .vet-details-section {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.vet-details-page p {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.vet-details-page p strong {
-  font-weight: bold;
-}
-
-.vet-details-page ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.vet-details-page ul li {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.vet-details-page a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.vet-details-page a:hover {
-  text-decoration: underline;
-}
-
-hr {
-  border: 0;
-  height: 1px;
-  background: #ddd;
-  margin: 1rem 0;
+/* ----- Back buttons ----- */
+.back-button{
+  background-color: var(--deep-purple);
+  border: 0.0625rem solid var(--white-text);
+  border-radius: 1.25rem;
+  outline: none;
+  padding: 0.5rem;
+  color: var(--white-text);
+  box-shadow: none;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 
 /* ----- Link cards in generel ----- */
