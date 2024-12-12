@@ -3,8 +3,11 @@ import { useState } from "react";
 
 export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
-  const [negative, setNegative] = useState("");
-  const [positive, setPositive] = useState("");
+  const [negative, setNegative] = useState([]);
+  const [positive, setPositive] = useState([]);
+
+  // temporary text state for adding new negative or positive
+  const [text, setText] = useState("");
 
   // current input for adding new negative or positive
   // const [currentInput, setCurrentInput] = useState([]);
@@ -15,7 +18,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     event.preventDefault();
     let data = {};
 
-    console.log(mood)
+    // console.log(mood)
 
     // check which step it is and set the data accordingly
     if (currentStep === 0) {
@@ -36,27 +39,24 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     }
   }
 
+  
+
+  // Add button
   async function handleAdd(event) {
     event.preventDefault();
-    let data = {};
     // check which step it is and set the data accordingly
     if (currentStep === 1) {
       // negative is the text itself
+      // console.log("text = " +text)
+      setNegative([...negative, text]);
+      console.log("negative = " + negative);
 
-      console.log("negative = " + negative)
-      
-      // setCurrentInput([...currentInput, negative]);
-      // console.log("currentInput = " + currentInput)
-      data.negative = [negative];
-
-      const response = await fetch(entryUrl, {
-        method: "PATCH",
-        body: JSON.stringify(data),
-      });
     } else if (currentStep === 3) {
-      data = { positive: { positive } };
+      // positive is the text itself
+      setPositive([...positive, text]);
+      console.log("positive = " + positive);
     }
-    // console.log(negative + " added");
+
 
 
   }
@@ -97,18 +97,19 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
           <textarea
             // if currentStep = 1, set the name and id to negative, otherwise set to positive
             // not a great logic though
-            name={currentStep === 1 ? "negative" : "positive"}
-            id={currentStep === 1 ? "negative" : "positive"}
-            // name="aaa"
-            // id="aaa"
+            // name={currentStep === 1 ? "negative" : "positive"}
+            // id={currentStep === 1 ? "negative" : "positive"}
+            name={text}
+            id={text}
             placeholder={currentStep === 1 ? "What made you feel overwhelmed?" : "What made you feel good today, no matter how small?"}
             // if currentStep = 1, set the value to negative, otherwise set to positive
             // not a great logic though
-            onChange={(e) =>
-              currentStep === 1
-                ? setNegative(e.target.value)
-                : setPositive(e.target.value)
-            }
+            // onChange={(e) =>
+            //   currentStep === 1
+            //     ? setNegative(e.target.value)
+            //     : setPositive(e.target.value)
+            // }
+            onChange={(e) => setText(e.target.value)}
           ></textarea>
           <button type="button" className="button" onClick={handleAdd}>Add</button>
           </div>
@@ -123,7 +124,22 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
       }
 
       {currentStep === 5 && (
+        // show all the negative and positive
+        <div>
+          <h3>Negative</h3>
+          <ul>
+            {negative.map((item, key) => (
+              <li key={key}>{item}</li>
+            ))}
+          </ul>
+          <h3>Positive</h3>
+          <ul>
+            {positive.map((item, key) => (
+              <li key={key}>{item}</li>
+            ))}
+          </ul>
         <button className="button" onClick={onNext}>Complete this entry</button>
+        </div>
       )}
 
       {currentStep === 6 && (
