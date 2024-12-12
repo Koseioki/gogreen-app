@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { auth } from "../firebase-config";
 // import Nav from "../components/Nav";
 
@@ -35,16 +35,14 @@ export default function NewEntryPage() {
         <main className="page" id="main-content">
             <h1>New Entry</h1>
             <article
-            onClick={handleStartJournaling}
-            tabIndex={0}
-            //the same function when pressed enter key
-            onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                    handleStartJournaling();
-                }
-            }}
-            className="link-card">
-                <h2 role="link">Guided journalling</h2>
+                onClick={handleStartJournaling}
+  
+                className="link-card">
+                <h2>
+                    <NavLink>
+                        Guided journalling
+                    </NavLink>
+                </h2>
                 <p>Guided questions to inspire your thoughts</p>
             </article>
 

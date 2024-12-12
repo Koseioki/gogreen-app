@@ -35,6 +35,8 @@
     text-align: center;
     font-size: 0.75rem;
     border-radius: 1.25rem;
+    transition: 0.1s;
+
 
 }
 
@@ -61,6 +63,7 @@
 
 .navigation a:focus{
     outline: 0.125rem solid var(--white-text);
+    transition: 0.1s;
 
 }
 

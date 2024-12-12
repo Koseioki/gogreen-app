@@ -8,19 +8,20 @@
   --orange: #ff8e5a;
   --orange-hover: #ffd2bd;
   --navigation-purple: #7f6aa1;
-  
+
 }
 
 /* ---------- Global Styling ---------- */
 html {
   box-sizing: border-box;
-  
+
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+  outline: none;
 }
 
 body,
@@ -34,6 +35,7 @@ html {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+
 }
 
 /* ---------- Typography ---------- */
@@ -43,41 +45,42 @@ h1 {
   font-weight: bold;
 }
 
-h2{
+h2 {
   font-size: 1.25rem;
   font-weight: normal;
 }
 
-.speech-bubble{
+.speech-bubble {
   background-color: var(--white);
   color: var(--black-text);
   padding: 1rem;
   border-radius: 1.25rem;
   margin: 1rem 0;
   position: relative;
+  border: var(--black-text) 0.125rem solid;
 }
 
 .speech-bubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 10%;
-	width: 0;
-	height: 0;
-	border: 1.25em solid transparent;
-	border-top-color: var(--white);
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -0.625rem;
-	margin-bottom: -1.25rem;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 0;
+  height: 0;
+  border: 1.25em solid transparent;
+  border-top-color: var(--white);
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -0.625rem;
+  margin-bottom: -1.25rem;
 }
 
 /* ---------- Link Styling ---------- */
 a {
-  /* color: var(--green); */
   text-decoration: none;
-  /* transition: 0.5s; */
 }
+
+
 
 a:hover {
   /* color: var(--dark-green); */
@@ -99,7 +102,7 @@ select {
   margin: 0;
 }
 
-.button{
+.button {
   background-color: var(--orange);
   color: var(--black-text);
   cursor: pointer;
@@ -114,8 +117,8 @@ select {
   transition: 0.1s;
 }
 
-.button:focus{
-  outline: 0.125rem var(--white-text) solid;
+.button:focus {
+  outline: 0.125rem var(--black-text) solid;
   background-color: var(--orange-hover);
   transition: 0.1s;
 }
@@ -134,8 +137,15 @@ select {
   transition: 0.1s;
 }
 
+.sub-button:focus {
+  background-color: var(--deep-purple);
+  color: var(--white-text);
+  border: 0.125rem solid var(--white-text);
+  transition: 0.1s;
+}
+
 /* button:hover { */
-  /* background-color: var(--light-green);
+/* background-color: var(--light-green);
   color: var(--green); */
 /* } */
 
@@ -236,8 +246,8 @@ form {
   grid-template-columns: 1fr;
   gap: 1rem;
   /* border: 1px solid red; */
-  /* width: 100%; */
-  /* max-width: 40rem; */
+/* width: 100%; */
+/* max-width: 40rem; */
 /* } */
 
 /* @media (min-width: 600px) {
@@ -328,9 +338,10 @@ form {
 
 
 /* skip-to-conetnt button */
-.skip-to-content-button{
+.skip-to-content-button {
   text-align: center;
   padding: 1rem;
+  border: var(--white-text) 0.125rem solid;
   background-color: var(--orange);
   color: var(--black-text);
   border-radius: 1.25rem;
@@ -338,19 +349,22 @@ form {
   /* width: 100%; */
   position: absolute;
   top: -10rem;
+  transition: 0.1s;
+
 }
 
-.skip-to-content-button:focus{
+.skip-to-content-button:focus {
   top: 0rem;
+  transition: 0.1s;
 }
 
 /* ----- Back buttons ----- */
-.back-button{
+.back-button {
   background-color: var(--deep-purple);
   border: 0.0625rem solid var(--white-text);
   border-radius: 1.25rem;
   outline: none;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   color: var(--white-text);
   box-shadow: none;
   font-size: 0.75rem;
@@ -358,8 +372,10 @@ form {
   transition: 0.1s;
 }
 
-.back-button:focus{
+.back-button:focus {
   outline: 0.125rem var(--orange) solid;
+  transition: 0.1s;
+
 }
 
 /* ----- Link cards in generel ----- */
@@ -373,11 +389,33 @@ form {
   transition: 0.1s;
 }
 
-.link-card:hover{
+
+.link-card:hover {
   background-color: var(--white);
+  transition: 0.1s;
+
 }
 
-.link-card:focus{
+.link-card a {
+  color: var(--black-text);
+  transition: 0.1s;
+
+}
+
+.link-card a:focus {
+  border-bottom: var(--black-text) 0.125rem solid;
+  font-weight: bold;
+  transition: 0.1s;
+}
+
+/* .link-card:focus {
   background-color: var(--white);
   outline: 0.125rem var(--orange) solid;
+} */
+
+/* ----- button container for the homepage ----- */
+#button-container a {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
 }

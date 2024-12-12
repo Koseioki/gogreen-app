@@ -86,7 +86,9 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
               </div>
             ))}
           </div>
-          <button type="submit" className="button">Next step</button>
+          {/* if the form is empty, hide the button */}
+          {mood === "" ? null : <button type="submit" className="button">Next step</button>}
+          {/* <button type="submit" className="button">Next step</button> */}
         </form>
       )}
 
@@ -127,7 +129,12 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
             ></textarea>
             <button type="button" className="button" onClick={handleAdd}>Add</button>
           </div>
-          <button type="submit" className="button">Next step</button>
+
+
+          {/* if the negative array has something in it, show this button */}
+          {currentStep === 1 && negative.length > 0 ? <button type="submit" className="button">Next step</button> : null}
+          {/* the same thing to the possitive array */}
+          {currentStep === 3 && positive.length > 0 ? <button type="submit" className="button">Next step</button> : null}
         </form>
 
       )

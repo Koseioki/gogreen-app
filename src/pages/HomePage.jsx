@@ -52,13 +52,14 @@ export default function HomePage() {
         <p>{randomSentence}</p>
       </aside>
       
-      <NavLink to="/new-entry">
-        <div className="button">
+      <div id="button-container">
+      <NavLink to="/new-entry" className="button">
           Write today&apos;s journal
-        </div>
       </NavLink>
-      <div className="button sub-button">
-        Set an alarm for reminder
+      
+      <NavLink to="/" className="button sub-button">
+      Set an alarm for reminder
+      </NavLink>
       </div>
     </main>
   )
