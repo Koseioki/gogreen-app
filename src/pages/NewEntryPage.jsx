@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
+// import Nav from "../components/Nav";
 
 export default function NewEntryPage() {
     const navigate = useNavigate();
@@ -43,12 +44,12 @@ export default function NewEntryPage() {
                 }
             }}
             className="link-card">
-                <h2>Guided journaling</h2>
+                <h2 role="link">Guided journalling</h2>
                 <p>Guided questions to inspire your thoughts</p>
             </article>
 
             <article className="link-card">
-                <h2>Free journaling</h2>
+                <h2>Free journalling</h2>
                 <p>An open page for your freeform writing</p>
             </article>
         </main>

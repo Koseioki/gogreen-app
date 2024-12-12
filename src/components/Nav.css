@@ -1,5 +1,5 @@
 /* ---------- Navigation Styling ---------- */
-nav {
+.navigation {
     margin: 0.5rem;
     padding: 1rem 0;
     border-radius: 1.25rem;
@@ -12,14 +12,14 @@ nav {
 }
 
 @media (min-width: 40rem) {
-    nav {
+    .navigation {
         top: 0;
     }
 }
 
 /* move the nav to the bottom when smaller screens */
 @media (max-width: 40rem) {
-    nav {
+    .navigation {
         bottom: 0;
         left: 0;
         right: 0;
@@ -28,7 +28,7 @@ nav {
     }
 }
 
-nav a {
+.navigation a {
  
     padding: 0.5rem;
     color: var(--white-text);
@@ -53,18 +53,18 @@ nav a {
 }
 
 
-nav a:hover {
+.navigation a:hover {
     /* background-color: var(--light-green); */
     /* outline: 0.125rem solid var(--white); */
     /* color: var(--white); */
 }
 
-nav a:focus{
+.navigation a:focus{
     outline: 0.125rem solid var(--white-text);
 
 }
 
-nav a.active {
+.navigation a.active {
 
     background-color: var(--deep-purple);
 

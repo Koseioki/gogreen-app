@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 export default function HomePage() {
   const [name, setName] = useState("");
- 
+
   // console.log(auth.currentUser?.uid);
   const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}.json`;
   // const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/HlvRHr58C05guOLl64k5.json`;
@@ -51,16 +51,15 @@ export default function HomePage() {
         <h2>{greeting}, {name}.</h2>
         <p>{randomSentence}</p>
       </aside>
-
+      
       <NavLink to="/new-entry">
         <div className="button">
           Write today&apos;s journal
         </div>
       </NavLink>
-      <NavLink to="/">
-        <div className="button sub-button">
-          Set an alarm for reminder
-        </div>
-      </NavLink>
-    </main>)
+      <div className="button sub-button">
+        Set an alarm for reminder
+      </div>
+    </main>
+  )
 }

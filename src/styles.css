@@ -27,7 +27,7 @@ body,
 html {
   background-color: var(--deep-purple);
   color: var(--white-text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: regular;
   font-size: 1rem;
   height: 100%;
@@ -99,7 +99,7 @@ select {
   margin: 0;
 }
 
-.button {
+.button{
   background-color: var(--orange);
   color: var(--black-text);
   cursor: pointer;
@@ -110,6 +110,12 @@ select {
 }
 
 .button:hover {
+  background-color: var(--orange-hover);
+  transition: 0.1s;
+}
+
+.button:focus{
+  outline: 0.125rem var(--white-text) solid;
   background-color: var(--orange-hover);
   transition: 0.1s;
 }
@@ -128,12 +134,12 @@ select {
   transition: 0.1s;
 }
 
-button:hover {
+/* button:hover { */
   /* background-color: var(--light-green);
   color: var(--green); */
-}
+/* } */
 
-textarea:hover,
+/* textarea:hover,
 input:hover,
 button:hover {
   box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.6), 0 1px 2px hsla(0, 0%, 0%, 0.2);
@@ -156,10 +162,10 @@ form[action$="destroy"] button:hover,
 .btn-delete:hover {
   background-color: #f44250;
   color: var(--white);
-}
+} */
 
 /* ---------- Form Specific Styling ---------- */
-form input {
+/* form input {
   width: 100%;
 }
 
@@ -184,7 +190,7 @@ form {
   transition: 0.5s;
   animation: fadeIn 0.5s;
   border-radius: 8px;
-}
+} */
 
 #sign-in-form,
 #sign-up-form {
@@ -192,14 +198,14 @@ form {
 }
 
 /* ---------- Button Group ---------- */
-.btns {
+/* .btns {
   display: flex;
   gap: 0.5em;
 }
 
 .container > .btns {
   margin: 1em 0;
-}
+} */
 
 
 /* ---------- Page Styling ---------- */
@@ -221,7 +227,7 @@ form {
 }
 
 /* ---------- Grid Container Styling ---------- */
-.timeline-container {
+/* .timeline-container {
   display: flex;
   justify-content: center;
 }
@@ -230,9 +236,9 @@ form {
   grid-template-columns: 1fr;
   gap: 1rem;
   /* border: 1px solid red; */
-  width: 100%;
-  max-width: 40rem;
-}
+  /* width: 100%; */
+  /* max-width: 40rem; */
+/* } */
 
 /* @media (min-width: 600px) {
   .grid {
@@ -246,12 +252,12 @@ form {
   }
 } */
 
-.grid > .post-card {
+/* .grid > .post-card {
   cursor: pointer;
-}
+} */
 
 /* ---------- Grid Filter Styling ---------- */
-.grid-filter {
+/* .grid-filter {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 1em;
@@ -266,102 +272,15 @@ form {
 .grid-filter select {
   width: 100%;
   padding: 1.1rem;
-}
+} */
 
-.grid-filter input,
+/* .grid-filter input,
 .grid-filter select {
   margin: 1em 0 0;
-}
+} */
 
 /* ---------- Post Card Styling ---------- */
 
-/* Connor here peeps */
-.post-card {
-  /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); */
-  padding: 1rem;
-  margin-bottom: 2rem; /* Spacing between the cards */
-  background-color: var(--white);
-  /* transition: 0.5s; */
-  /* animation: fadeIn 0.5s; */
-  cursor: pointer;
-  border-radius: 0.75rem;
-  width: 100%;
-  /* border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
-  position: relative; */
-}
-
-.post-card:hover {
-  box-shadow: 0 8px 16px 0 var(--green);
-}
-
-.post-image {
-  width: 100%;
-  /* height: 200px; */
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  /* width: 100%;
-  height: auto;
-  border-radius: 8px; */
-}
-
-.post-card h2 {
-  margin: 1rem 0;
-}
-
-.post-card .title {
-  margin: 0;
-}
-
-/* ---------- Avatar Styling ---------- */
-.avatar {
-  display: flex;
-  align-items: center;
-  /* margin: 0 0 1.2rem; */
-  text-align: left;
-}
-
-.avatar span {
-  margin: 0 0 0 1rem;
-}
-
-.avatar h3,
-.avatar p {
-  margin: 0;
-  /* line-height: 1.2; */
-}
-
-.post-card .avatar img,
-.avatar-image{
-  width: 100%;
-  max-width: 3rem;
-  aspect-ratio: 1/1;
-  /* max-width: 50px;
-  max-height: 50px; */
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.profile-image{
-  width: 100%;
-  max-width: 5rem;
-  aspect-ratio: 1/1;
-
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* ---------- User Page Styling ---------- */
-#user-page .post-card > img {
-  height: auto;
-}
-
-#user-page .btns {
-  padding: 1em 0;
-}
 
 /* ---------- Login Form Styling ---------- */
 #sign-in-page,
@@ -436,6 +355,7 @@ form {
   box-shadow: none;
   font-size: 0.75rem;
   cursor: pointer;
+  transition: 0.1s;
 }
 
 .back-button:focus{
@@ -450,6 +370,7 @@ form {
   margin: 1rem 0;
   border-radius: 1.25rem;
   cursor: pointer;
+  transition: 0.1s;
 }
 
 .link-card:hover{

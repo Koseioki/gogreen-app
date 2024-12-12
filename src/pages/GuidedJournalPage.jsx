@@ -37,12 +37,16 @@ export default function Journal() {
   };
 
   return (
-    <main className="page" id="main-content">
-
-      <div className="back-skip-navigation">
+    <div className="page">
+    <nav>
+            <div className="back-skip-navigation">
         <button className="back-button" onClick={handleBack}>Back</button>
         <button className="skip-button" onClick={handleNext}>Skip this step</button>
       </div>
+    </nav>
+    <main id="main-content">
+
+
       <h1>Guided Journal</h1>
       <ProgressBar currentStep={currentStep + 1} totalSteps={prompts.length} />
       <Prompt
@@ -51,6 +55,7 @@ export default function Journal() {
       onNext={handleNext}
       currentStep={currentStep}/>
     </main>
+    </div>
   );
 }
 

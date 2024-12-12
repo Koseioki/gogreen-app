@@ -12,7 +12,7 @@ export default function Nav() {
       <a className="skip-to-content-button" href="#main-content">
         Skip to Content
       </a>
-      <nav>
+      <nav className="navigation">
         <NavLink to="/">
           <div className="nav-dual-coding">
             <img src={home} alt="" />
@@ -25,18 +25,14 @@ export default function Nav() {
             <span>New entry</span>
           </div>
         </NavLink>
-        <NavLink to="/">
           <div className="nav-dual-coding">
             <img src={post} alt="" />
             <span>My journal</span>
           </div>
-        </NavLink>
-        <NavLink to="/">
           <div className="nav-dual-coding">
             <img src={profile} alt="" />
             <span>Profile</span>
           </div>
-        </NavLink>
       </nav>
     </>
   );
