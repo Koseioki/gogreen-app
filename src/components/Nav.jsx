@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "./Nav.css";
 import home from "../images/home.svg";
-import discover from "../images/discover.svg";
-import post from "../images/post.svg";
-// import info from "../images/info.svg";
-import profile from "../images/profile.svg";
+import newEntry from "../images/new-entry.svg";
+import myJournal from "../images/my-journal.svg";
+import me from "../images/me.svg";
 
 export default function Nav() {
   return (
@@ -21,16 +20,16 @@ export default function Nav() {
         </NavLink>
         <NavLink to="/new-entry">
           <div className="nav-dual-coding">
-            <img src={discover} alt="" />
+            <img src={newEntry} alt="" />
             <span>New entry</span>
           </div>
         </NavLink>
           <div className="nav-dual-coding">
-            <img src={post} alt="" />
+            <img src={myJournal} alt="" />
             <span>My journal</span>
           </div>
           <div className="nav-dual-coding">
-            <img src={profile} alt="" />
+            <img src={me} alt="" />
             <span>Profile</span>
           </div>
       </nav>

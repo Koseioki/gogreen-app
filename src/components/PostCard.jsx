@@ -3,9 +3,9 @@
 import { useNavigate } from "react-router-dom";
 // import { getDatabase, ref, onValue } from "firebase/database";
 import { auth } from "../firebase-config";
-import UserAvatar from "./UserAvatar";
+// import UserAvatar from "./UserAvatar";
 // import favouriteIcon from "../images/favourite.svg";
-import commentIcon from "../images/comments.svg";
+// import commentIcon from "../images/comments.svg";
 import "../firebase-config";
 // import LikeButton from "./LikeButton";
 

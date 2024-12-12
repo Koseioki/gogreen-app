@@ -1,5 +1,9 @@
 import "./Journal.css";
 import { useState } from "react";
+import voice from "../images/voice.svg";
+import video from "../images/video.svg";
+import picture from "../images/picture.svg";
+import draw from "../images/draw.svg";
 
 export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
@@ -127,7 +131,40 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
                   : "What made you feel good today, no matter how small?"}
               onChange={(e) => setText(e.target.value)}
             ></textarea>
-            <button type="button" className="button" onClick={handleAdd}>Add</button>
+
+<div id="entry-options-button-container">
+            {/* icons */}
+            <div className="entry-options">
+              <button type="button">
+                <div>
+                  <img src={voice} alt="" />
+                  <span>Voice</span>
+                </div>
+              </button>
+              <button type="button">
+                <div>
+                  <img src={video} alt="" />
+                  <span>Video</span>
+                </div>
+              </button>
+              <button type="button">
+                <div>
+                  <img src={picture} alt="" />
+                  <span>Picture</span>
+                </div>
+              </button>
+              <button type="button">
+                <div>
+                  <img src={draw} alt="" />
+                  <span>Draw</span>
+                </div>
+              </button>
+            </div>
+            {/* only show the button when "text" has something */}
+            {text === "" ? null : <button type="button" className="button" onClick={handleAdd}>Add</button>}
+            {/* <button type="button" className="button" onClick={handleAdd}>Add</button> */}
+            </div>
+
           </div>
 
 
