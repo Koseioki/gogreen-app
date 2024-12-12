@@ -6,7 +6,7 @@ import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter basename={import.meta.env.DEV ? "/" : "/reptile-app/"}>
+        <BrowserRouter basename={import.meta.env.DEV ? "/" : "/go-green-app/"}>
             <App />
         </BrowserRouter>
     </React.StrictMode>
