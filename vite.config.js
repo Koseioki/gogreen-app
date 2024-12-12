@@ -9,7 +9,7 @@ export default defineConfig(({ command }) => {
     };
 
     if (command !== "serve") {
-        config.base = "/reptile-app/";
+        config.base = "/gogreen-app/";
     }
 
     return config;
