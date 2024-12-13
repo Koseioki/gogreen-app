@@ -4,6 +4,7 @@
     border-radius: 1.25rem;
     background-color: var(--white-text);
     outline: 0.125rem var(--white-text) solid;
+    margin: 1rem 0;
     
 }
 .progress-bar-fill {

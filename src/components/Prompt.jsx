@@ -76,18 +76,20 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
         <form onSubmit={handleSubmit} className="journal-form">
           <div className="mood-icons">
             {/* map all the icons as radio buttons */}
-            {Object.entries(prompt.options).map((option, key) => (
+            {Object.entries(prompt.options).map(([key, option]) => (
               <div key={key}>
                 <input
                   type="radio"
-                  id={option[1]}
+                  id={`option-${key}`}
                   name="mood"
-                  value={option[0]}
+                  value={key}
                   onChange={(e) => setMood(e.target.value)}
                 />
-                {/* option[0] is numbers (0-4), and option[1] is description (very bad, bad...)*/}
-                <label htmlFor={option[1]}>{option[1]}</label>
-
+                {/* Display the image and text for each option */}
+                <label htmlFor={`option-${key}`}>
+                  <img src={option.image} alt="" />
+                  {option.text}
+                </label>
               </div>
             ))}
           </div>
