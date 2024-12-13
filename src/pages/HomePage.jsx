@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { auth } from "../firebase-config";
 import { useState } from "react";
+import moon from "../images/moon.svg";
 
 import { NavLink } from "react-router-dom";
 
@@ -47,19 +48,23 @@ export default function HomePage() {
   return (
     <main className="page" id="main-content">
       <h1>Home</h1>
-      <aside className="speech-bubble">
-        <h2>{greeting}, {name}.</h2>
-        <p>{randomSentence}</p>
+      <aside>
+        <div className="speech-bubble">
+          <h2>{greeting}, {name}.</h2>
+          <p>{randomSentence}</p>
+        </div>
+        <img src={moon} alt="Moon" />
       </aside>
-      
+
+
       <div id="button-container">
-      <NavLink to="/new-entry" className="button">
+        <NavLink to="/new-entry" className="button">
           Write today&apos;s journal
-      </NavLink>
-      
-      <NavLink to="/" className="button sub-button">
-      Set an alarm for reminder
-      </NavLink>
+        </NavLink>
+
+        <NavLink to="/" className="button sub-button">
+          Set an alarm for reminder
+        </NavLink>
       </div>
     </main>
   )
