@@ -1,5 +1,7 @@
 import "./Journal.css";
 import { useState } from "react";
+import { auth } from "../firebase-config";
+
 import voice from "../images/voice.svg";
 import video from "../images/video.svg";
 import picture from "../images/picture.svg";
@@ -13,9 +15,8 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   // temporary text state for adding new negative or positive
   const [text, setText] = useState("");
 
-  // current input for adding new negative or positive
-  // const [currentInput, setCurrentInput] = useState([]);
-  const entryUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/entries/${entryId}.json`;
+
+  const entryUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries/${entryId}.json`;
   // console.log("mode = " + mood);
 
   async function handleSubmit(event) {

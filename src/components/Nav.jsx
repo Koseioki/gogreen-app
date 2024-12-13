@@ -24,14 +24,16 @@ export default function Nav() {
             <span>New entry</span>
           </div>
         </NavLink>
+        <NavLink to="/my-journal">
           <div className="nav-dual-coding">
             <img src={myJournal} alt="" />
             <span>My journal</span>
           </div>
-          <div className="nav-dual-coding">
-            <img src={me} alt="" />
-            <span>Profile</span>
-          </div>
+        </NavLink>
+        <div className="nav-dual-coding">
+          <img src={me} alt="" />
+          <span>Profile</span>
+        </div>
       </nav>
     </>
   );

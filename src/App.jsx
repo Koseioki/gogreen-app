@@ -7,14 +7,16 @@ import "./firebase-config";
 import { auth } from "./firebase-config";
 
 import HomePage from "./pages/HomePage";
+import NewEntryPage from "./pages/NewEntryPage";
+import GuidedJournalPage from "./pages/GuidedJournalPage";
+
+import MyJournalPage from "./pages/MyJournalPage";
 import ProfilePage from "./pages/ProfilePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 
 
-import NewEntryPage from "./pages/NewEntryPage";
 
-import GuidedJournalPage from "./pages/GuidedJournalPage";
 
 export default function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth")); // start default value comes from localStorage
@@ -38,19 +40,15 @@ export default function App() {
     <>
       <Nav />
       <Routes>
+      <Route path="*" element={<Navigate to="/" />} />
+
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/create" element={<CreatePage />} />
-        <Route path="/posts/:postId" element={<PostDetailPage />} />
-        <Route path="/posts/:postId/edit" element={<UpdatePage />} /> */}
-        <Route path="/profile" element={<ProfilePage />} />
-        {/* <Route path="/info" element={<InfoPage />} /> */}
+
         <Route path="/new-entry" element={<NewEntryPage />} />
-        {/* <Route path="/vets" element={<VetsPage />} />
-        <Route path="/vets/:vetId" element={<VetDetailsPage />} />
-        <Route path="/partners" element={<PartnersPage />} /> */}
-        <Route path="*" element={<Navigate to="/" />} />
-        {/* <Route path="/:userId" element={<UserProfilePage />} /> */}
         <Route path="/guided-journal/:entryId" element={<GuidedJournalPage />} />
+        <Route path="/my-journal" element={<MyJournalPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+
       </Routes>
     </>
   );

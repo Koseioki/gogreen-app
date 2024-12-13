@@ -1,0 +1,21 @@
+.graph-container {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+  }
+  
+  .x-axis-labels {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .x-axis-labels span {
+    font-size: 12px;
+    text-align: center;
+    width: 50px;
+  }
+  

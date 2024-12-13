@@ -4,22 +4,26 @@ import { auth } from "../firebase-config";
 
 export default function NewEntryPage() {
     const navigate = useNavigate();
+    // 
+    const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries.json`;
 
     // console.log(auth.currentUser?.uid);
     async function handleStartJournaling() {
+
+        // add entry under the user's entries
         async function createEntry(newEntry) {
-            const url = "https://gogreen-app-1d826-default-rtdb.firebaseio.com/entries.json";
             const response = await fetch(url, {
                 method: "POST",
                 body: JSON.stringify(newEntry)
             });
             if (response.ok) {
                 const data = await response.json();
-                // console.log("New entry created: ", data);
-                // Navigate to /guided-journal with the new entry id
                 navigate(`/guided-journal/${data.name}`);
-            } else {
-                // console.log("Sorry, something went wrong");
+            }
+
+
+            else {
+                console.log("Sorry, something went wrong");
             }
         }
 
@@ -36,7 +40,7 @@ export default function NewEntryPage() {
             <h1>New Entry</h1>
             <article
                 onClick={handleStartJournaling}
-  
+
                 className="link-card">
                 <h2>
                     <NavLink>
