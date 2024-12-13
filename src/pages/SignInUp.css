@@ -1,0 +1,29 @@
+/* #sign-in-form,
+#sign-up-form {
+  width: 100%;
+  display: block;
+} */
+
+/* ---------- Login Form Styling ---------- */
+#sign-in-page form,
+#sign-up-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+
+/* .error-message {
+  color: var(--text-color-danger);
+  margin-top: 10px;
+  grid-column: 2;
+}
+
+.hide {
+  display: none;
+}
+
+.image-preview {
+  cursor: pointer;
+} */

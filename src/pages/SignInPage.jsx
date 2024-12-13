@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase-config";
+import "./SignInUp.css";
 
 export default function SignInPage() {
   const [errorMessage, setErrorMessage] = useState("");

@@ -202,10 +202,7 @@ form {
   border-radius: 8px;
 } */
 
-#sign-in-form,
-#sign-up-form {
-  width: 35rem;
-}
+
 
 /* ---------- Button Group ---------- */
 /* .btns {
@@ -292,29 +289,6 @@ form {
 /* ---------- Post Card Styling ---------- */
 
 
-/* ---------- Login Form Styling ---------- */
-#sign-in-page,
-#sign-up-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 85vh;
-}
-
-.error-message {
-  color: var(--text-color-danger);
-  margin-top: 10px;
-  grid-column: 2;
-}
-
-.hide {
-  display: none;
-}
-
-.image-preview {
-  cursor: pointer;
-}
 
 /* ---------- Animations ---------- */
 @keyframes fadeIn {
