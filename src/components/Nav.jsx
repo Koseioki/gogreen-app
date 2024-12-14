@@ -30,10 +30,12 @@ export default function Nav() {
             <span>My journal</span>
           </div>
         </NavLink>
+        <NavLink to="*">
         <div className="nav-dual-coding">
           <img src={me} alt="" />
           <span>Profile</span>
         </div>
+        </NavLink>
       </nav>
     </>
   );

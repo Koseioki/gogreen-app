@@ -14,13 +14,6 @@ export default function MyEntries({ uid }) {
     const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${uid}/entries.json`;
     const navigate = useNavigate();
 
-
-
-
-
-
-    
-
     useEffect(() => {
         async function getEntries() {
             const response = await fetch(url);
@@ -41,7 +34,7 @@ export default function MyEntries({ uid }) {
     return (
         <div>
             <h2>My Entries</h2>
-            <p>UID: {uid}</p>
+            {/* <p>UID: {uid}</p> */}
             <ul>
                 {entries && Object.keys(entries).map(entryId => (
                     <li key={entryId}

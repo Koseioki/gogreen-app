@@ -31,7 +31,7 @@
 .navigation a {
  
     padding: 0.5rem;
-    color: var(--white-text);
+    color: var(--white);
     text-align: center;
     font-size: 0.75rem;
     border-radius: 1.25rem;
@@ -62,7 +62,7 @@
 }
 
 .navigation a:focus{
-    outline: 0.125rem solid var(--white-text);
+    outline: 0.125rem solid var(--white);
     transition: 0.1s;
 
 }

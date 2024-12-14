@@ -69,7 +69,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
 
   return (
     <div>
-      <h3 className="prompts-headings">{prompt.text}</h3>
+      <h2 className="prompts-headings">{prompt.text}</h2>
 
       {/* the first step (face icons) */}
       {currentStep === 0 && (

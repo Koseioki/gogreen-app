@@ -1,8 +1,26 @@
 .graph-container {
     position: relative;
-    width: 500px;
-    height: 300px;
-    border: 1px solid #ccc;
+    width: 100%;
+    height: 18.75rem;
+    border: 0.125rem solid var(--black-text);
+    border-radius: 1.25rem;
+    background-color: var(--white);
+    padding: 2rem;
+    margin: 1rem 0 2rem 0;
+  }
+
+  .graph-container svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .graph-container circle {
+    fill: var(--deep-purple);
+    r: 0.5rem;
+  }
+  .graph-container line {
+    stroke: var(--navigation-purple);
+    stroke-width: 0.25rem;
   }
   
   .x-axis-labels {
@@ -12,10 +30,15 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .x-axis-labels div{
+    
+  }
   
   .x-axis-labels span {
-    font-size: 12px;
+    font-size: 0.75rem;
     text-align: center;
-    width: 50px;
+    /* width: 50px; */
+    color: var(--white-text);
   }
   
