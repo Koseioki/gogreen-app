@@ -7,6 +7,12 @@ import video from "../images/video.svg";
 import picture from "../images/picture.svg";
 import draw from "../images/draw.svg";
 
+import veryBad from "../images/very-bad.svg";
+import bad from "../images/bad.svg";
+import neutral from "../images/neutral.svg";
+import good from "../images/good.svg";
+import veryGood from "../images/very-good.svg";
+
 export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
   const [negative, setNegative] = useState([]);
@@ -80,15 +86,20 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
               <div key={key}>
                 <input
                   type="radio"
-                  id={`option-${key}`}
+                  id={option}
                   name="mood"
                   value={key}
                   onChange={(e) => setMood(e.target.value)}
                 />
                 {/* Display the image and text for each option */}
-                <label htmlFor={`option-${key}`}>
-                  <img src={option.image} alt="" />
-                  {option.text}
+                <label htmlFor={option}>
+                  {/* load images depending on the mood */}
+                  {key === "0" && <img src={veryBad} alt="" />}
+                  {key === "1" && <img src={bad} alt="" />}
+                  {key === "2" && <img src={neutral} alt="" />}
+                  {key === "3" && <img src={good} alt="" />}
+                  {key === "4" && <img src={veryGood} alt="" />}
+                  {option}
                 </label>
               </div>
             ))}

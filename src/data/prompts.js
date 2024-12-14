@@ -5,12 +5,13 @@ const prompts = [
         type: 'radio',
         text: "How are you feeling today?",
         options: {
-            0: { text: 'Very bad', image: '/gogreen-app/src/images/very-bad.svg' },
-            1: { text: 'Bad', image: '/gogreen-app/src/images/bad.svg' },
-            2: { text: 'Neutral', image: '/gogreen-app/src/images/neutral.svg' },
-            3: { text: 'Good', image: '/gogreen-app/src/images/good.svg' },
-            4: { text: 'Very good', image: '/gogreen-app/src/images/very-good.svg' }
+            0: 'Very bad',
+            1: 'Bad',
+            2: 'Neutral',
+            3: 'Good',
+            4: 'Very good'
         }
+        
     },
 
     {
