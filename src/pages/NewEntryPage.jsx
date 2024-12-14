@@ -1,5 +1,8 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import { auth } from "../firebase-config";
+import chat from "../images/chat.svg";
+import blank from "../images/blank.svg";
+
 // import Nav from "../components/Nav";
 
 export default function NewEntryPage() {
@@ -40,10 +43,11 @@ export default function NewEntryPage() {
             <h1>New Entry</h1>
             <article
                 onClick={handleStartJournaling}
-
                 className="link-card">
+                    
                 <h2>
                     <NavLink>
+                    <img src={chat} alt=""/>
                         Guided journalling
                     </NavLink>
                 </h2>
@@ -51,7 +55,8 @@ export default function NewEntryPage() {
             </article>
 
             <article className="link-card">
-                <h2>Free journalling</h2>
+
+                <h2><img src={blank} alt=""/>Free journalling</h2>
                 <p>An open page for your freeform writing</p>
             </article>
         </main>

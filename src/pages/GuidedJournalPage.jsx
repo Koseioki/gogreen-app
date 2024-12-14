@@ -5,6 +5,8 @@ import ProgressBar from "../components/ProgressBar";
 import Prompt from "../components/Prompt";
 import prompts from "../data/prompts";
 
+import back from "../images/back.svg";
+
 export default function Journal() {
   const { entryId } = useParams();
   const [currentStep, setCurrentStep] = useState(0);
@@ -40,7 +42,7 @@ export default function Journal() {
     <div className="page">
     <nav>
             <div className="back-skip-navigation">
-        <button className="back-button" onClick={handleBack}>Back</button>
+        <button className="back-button" onClick={handleBack}> <img src={back} alt="" /> Back</button>
         <button className="skip-button" onClick={handleNext}>Skip this step</button>
       </div>
     </nav>
