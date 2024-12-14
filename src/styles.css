@@ -7,6 +7,7 @@
   --white: #ffffff;
   --orange: #ff8e5a;
   --orange-hover: #ffd2bd;
+  --dark-orange: #834224;
   --navigation-purple: #7f6aa1;
 
 }
@@ -115,18 +116,23 @@ select {
   width: 100%;
   border-radius: 1.25rem;
   transition: 0.1s;
-  box-shadow: none;
+  box-shadow: 0 0.4rem var(--dark-orange) ;
 }
 
 .button:hover {
   background-color: var(--orange-hover);
   transition: 0.1s;
+  box-shadow:  0 0.1rem var(--dark-orange) ;
+  transform: translateY(0.3rem);
+
 }
 
 .button:focus {
-  outline: 0.125rem var(--black-text) solid;
+  /* outline: 0.125rem var(--black-text) solid; */
   background-color: var(--orange-hover);
   transition: 0.1s;
+  box-shadow:  0 0.1rem var(--dark-orange) ;
+  transform: translateY(0.3rem);
 }
 
 .sub-button {
@@ -219,8 +225,7 @@ select {
   background-color: var(--orange);
   color: var(--black-text);
   border-radius: 1.25rem;
-  /* border: 0.125rem solid var(--orange); */
-  /* width: 100%; */
+
   position: absolute;
   top: -10rem;
   transition: 0.1s;
@@ -229,7 +234,7 @@ select {
 
 .skip-to-content-button:focus {
   top: 0rem;
-  transition: 0.1s;
+  /* transition: 0.1s; */
 }
 
 /* ----- Back buttons ----- */
@@ -261,31 +266,39 @@ select {
   border-radius: 1.25rem;
   cursor: pointer;
   transition: 0.1s;
+  box-shadow: 0 0.4rem var(--navigation-purple) ;
 }
 
 
 .link-card:hover {
   background-color: var(--white);
   transition: 0.1s;
+  box-shadow: 0 0.1rem var(--navigation-purple) ;
+  transform: translateY(0.3rem);
 
 }
 
-.link-card a {
+.link-card span {
   color: var(--black-text);
   transition: 0.1s;
-
+  display: flex;
+  justify-content: start;
+  gap: 0.5rem;
 }
 
 .link-card a:focus {
-  border-bottom: var(--black-text) 0.125rem solid;
-  font-weight: bold;
-  transition: 0.1s;
+  /* border-bottom: var(--black-text) 0.125rem solid; */
+  /* font-weight: bold;
+  transition: 0.1s; */
 }
 
-/* .link-card:focus {
+
+.link-card:has(a:focus) {
   background-color: var(--white);
   outline: 0.125rem var(--orange) solid;
-} */
+  box-shadow: 0 0.1rem var(--navigation-purple) ;
+  transform: translateY(0.3rem);
+}
 
 /* ----- button container for the homepage ----- */
 #button-container a {

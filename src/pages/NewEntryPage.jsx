@@ -47,8 +47,8 @@ export default function NewEntryPage() {
                     
                 <h2>
                     <NavLink>
-                    <img src={chat} alt=""/>
-                        Guided journalling
+                    <span><img src={chat} alt=""/>
+                        Guided journalling</span>
                     </NavLink>
                 </h2>
                 <p>Guided questions to inspire your thoughts</p>

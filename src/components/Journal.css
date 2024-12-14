@@ -17,17 +17,12 @@
 
 /* ----- face picking screen ----- */
 .mood-icons{
-    /* font-size: 0.75rem;
-    background: none;
-    box-shadow: none; */
-    display: flex;
-    /* align-items: center; */
-    justify-content: space-between;
-    /* border: red 1px solid; */
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
     margin: 3rem 0;
-    padding: 1rem;
-}
 
+}
 
 
 /* Hide the browser's default radio button */
@@ -39,13 +34,14 @@
 
 
 .mood-icons label{
-    padding: 1rem;
-    /* margin: 1rem; */
+    padding: 0.25rem;
     cursor: pointer;
     /* border: green 1px solid; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     font-size: 0.75rem;
 }
 
@@ -61,6 +57,30 @@
     border-radius: 1.25rem;
 }
 
+
+/* mood icons will be block display when smaller screen */
+@media screen and (max-width: 300px){
+    .mood-icons{
+        display: flex;
+        
+        flex-direction: column;
+        align-items: start;
+    }
+    .mood-icons label{
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       width: 100%;
+       flex-grow: 1;
+    }
+
+    .mood-icons img{
+        width: 2rem;
+        /* height: 2rem; */
+        /* margin: 0.5rem; */
+    }
+
+}
 
 /* ----- text area ----- */
 /* this is the area where textarea and add button are in */
@@ -135,7 +155,7 @@
 
 }
 
-/* entry buttons */
+/* entry option buttons */
 .entry-options{
     color: var(--black-text);
     display: flex;
@@ -147,6 +167,10 @@
     box-shadow: none;
     cursor: pointer;
     padding: 0.5rem;
+}
+
+.entry-options button:focus{
+    outline: 0.125rem var(--black-text) solid;
 }
 
 .entry-options div{
