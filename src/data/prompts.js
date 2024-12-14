@@ -5,11 +5,11 @@ const prompts = [
         type: 'radio',
         text: "How are you feeling today?",
         options: {
-            0: { text: 'Very bad', image: '/src/images/very-bad.svg' },
-            1: { text: 'Bad', image: '/src/images/bad.svg' },
-            2: { text: 'Neutral', image: '/src/images/neutral.svg' },
-            3: { text: 'Good', image: '/src/images/good.svg' },
-            4: { text: 'Very good', image: '/src/images/very-good.svg' }
+            0: { text: 'Very bad', image: '../images/very-bad.svg' },
+            1: { text: 'Bad', image: '../images/bad.svg' },
+            2: { text: 'Neutral', image: '../images/neutral.svg' },
+            3: { text: 'Good', image: '../images/good.svg' },
+            4: { text: 'Very good', image: '../images/very-good.svg' }
         }
     },
 
