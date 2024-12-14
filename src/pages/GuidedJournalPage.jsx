@@ -9,10 +9,10 @@ import back from "../images/back.svg";
 
 export default function Journal() {
 
-    useEffect(() => {
-      document.title = 'Guided Journal - Slowdiary';
-    }, []);
-  
+  useEffect(() => {
+    document.title = 'Guided Journal - Slow Diary';
+  }, []);
+
 
   const { entryId } = useParams();
   const [currentStep, setCurrentStep] = useState(0);
@@ -47,23 +47,27 @@ export default function Journal() {
 
   return (
     <div className="page">
-    <nav>
-            <div className="back-skip-navigation">
-        <button className="back-button" onClick={handleBack}> <img src={back} alt="" /> Back</button>
-        <button className="skip-button" onClick={handleNext}>Skip this step</button>
-      </div>
-    </nav>
-    <main id="main-content">
+      <nav>
+        <div className="back-skip-navigation">
+          <button className="back-button" onClick={handleBack}> <img src={back} alt="" /> Back</button>
+          {/* appears only when {currentStep === 1, 3, 5} */}
+          {currentStep === 1 || currentStep === 3 || currentStep === 5 ?
+            <button className="skip-button" onClick={handleNext}>Skip this step</button>
+            : null}
+
+        </div>
+      </nav>
+      <main id="main-content">
 
 
-      <h1>Guided Journal</h1>
-      <ProgressBar currentStep={currentStep + 1} totalSteps={prompts.length} />
-      <Prompt
-      entryId={entryId}
-      prompt={prompts[currentStep]}
-      onNext={handleNext}
-      currentStep={currentStep}/>
-    </main>
+        <h1>Guided Journal</h1>
+        <ProgressBar currentStep={currentStep + 1} totalSteps={prompts.length} />
+        <Prompt
+          entryId={entryId}
+          prompt={prompts[currentStep]}
+          onNext={handleNext}
+          currentStep={currentStep} />
+      </main>
     </div>
   );
 }

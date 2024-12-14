@@ -12,6 +12,18 @@
 
 }
 
+/* language setting */
+/* .ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+} */
+
+
 /* ---------- Global Styling ---------- */
 html {
   box-sizing: border-box;
@@ -57,7 +69,7 @@ h3 {
 }
 
 p{
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 /* ----- speech bubble on the home ----- */
@@ -94,7 +106,7 @@ a {
 
 
 /* ---------- Form, Input, and Button Styling ---------- */
-/* textarea,
+textarea,
 input,
 button,
 select {
@@ -107,7 +119,7 @@ select {
   background-color: white;
   line-height: 1.5;
   margin: 0;
-} */
+}
 
 .button {
   background-color: var(--orange);

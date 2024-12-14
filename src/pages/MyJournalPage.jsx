@@ -6,7 +6,7 @@ import { auth } from '../firebase-config';
 export default function MyJournalPage() {
 
     useEffect(() => {
-        document.title = 'My journal - Slowdiary';
+        document.title = 'My journal - SlowDiary';
       }, []);
     
 

@@ -37,33 +37,30 @@ export default function MyEntries({ uid }) {
             <h2>My Entries</h2>
             {/* <p>UID: {uid}</p> */}
             <ul className="entry-list">
-                {entries && Object.keys(entries).map(entryId => (
-                    <li key={entryId}
-                    onClick={() => handleClick(entryId)}
-                    className="link-card"
-                    >
-                        
-                        <h3><NavLink to = {`/my-journal/${entryId}`}>
-                        <span>
-                            {/* show the mood assessment, and changed the colour of the icons (not smart) */}
-                            {entries[entryId].mood === "0" && <img src={veryBad} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
-                            {entries[entryId].mood === "1" && <img src={bad} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
-                            {entries[entryId].mood === "2" && <img src={neutral} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
-                            {entries[entryId].mood === "3" && <img src={good} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
-                            {entries[entryId].mood === "4" && <img src={veryGood} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
-                            
-                            {formatDate(entries[entryId].date)}
-                            </span>
-                            </NavLink></h3>
-                            
-                        {/* show the first sentence from entries[entryId].negative[0], if it exists */}
-                        <p>{entries[entryId].negative && entries[entryId].negative[0]}...</p>
-                    
-
-                        
-                        
-                    </li>
-                ))}
+                {entries && Object.keys(entries)
+                    .sort((a, b) => new Date(entries[b].date) - new Date(entries[a].date))
+                    .map(entryId => (
+                        <li key={entryId}
+                            onClick={() => handleClick(entryId)}
+                            className="link-card"
+                        >
+                            <h3>
+                                <NavLink to={`/my-journal/${entryId}`}>
+                                    <span>
+                                        {/* show the mood assessment, and changed the colour of the icons (not smart) */}
+                                        {entries[entryId].mood === "0" && <img src={veryBad} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
+                                        {entries[entryId].mood === "1" && <img src={bad} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
+                                        {entries[entryId].mood === "2" && <img src={neutral} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
+                                        {entries[entryId].mood === "3" && <img src={good} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
+                                        {entries[entryId].mood === "4" && <img src={veryGood} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
+                                        {formatDate(entries[entryId].date)}
+                                    </span>
+                                </NavLink>
+                            </h3>
+                            {/* show the first sentence from entries[entryId].negative[0], if it exists */}
+                            <p>{entries[entryId].negative && entries[entryId].negative[0]}...</p>
+                        </li>
+                    ))}
             </ul>
         </div>
     )

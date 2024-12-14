@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 export default function HomePage() {
 
   useEffect(() => {
-    document.title = 'Home - Slowdiary';
+    document.title = 'Home - Slow Diary';
   }, []);
 
   const [name, setName] = useState("");

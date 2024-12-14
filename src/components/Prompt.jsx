@@ -206,13 +206,13 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
         currentStep === 5 && (
           // show all the negative and positive
           <div>
-            <h3>Negative</h3>
+            {/* <h3>Negative</h3> */}
             <ul className="reflection-cards">
               {negative.map((item, key) => (
                 <li key={key}>{item}</li>
               ))}
             </ul>
-            <h3>Positive</h3>
+            {/* <h3>Positive</h3> */}
             <ul className="reflection-cards">
               {positive.map((item, key) => (
                 <li key={key}>{item}</li>

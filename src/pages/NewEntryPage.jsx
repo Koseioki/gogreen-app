@@ -9,7 +9,7 @@ import blank from "../images/blank.svg";
 export default function NewEntryPage() {
 
     useEffect(() => {
-        document.title = 'New entry - Slowdiary';
+        document.title = 'New entry - Slow Diary';
     }, []);
 
 
