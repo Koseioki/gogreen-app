@@ -115,6 +115,7 @@ select {
   width: 100%;
   border-radius: 1.25rem;
   transition: 0.1s;
+  box-shadow: none;
 }
 
 .button:hover {
@@ -149,6 +150,22 @@ select {
   transition: 0.1s;
 }
 
+.delete-button {
+  background-color: var(--deep-purple);
+  color: var(--white-text);
+  text-decoration: underline;
+  border: none;
+  transition: 0.1s;
+}
+
+.delete-button:hover {
+  background-color: var(--deep-purple);
+  color: var(--white-text);
+  text-decoration: none;
+  transition: 0.1s;
+  border: 0.125rem solid var(--white-text);
+
+}
 
 
 /* ---------- Page Styling ---------- */
