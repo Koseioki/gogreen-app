@@ -33,7 +33,7 @@ export default function Nav() {
         <NavLink to="*">
         <div className="nav-dual-coding">
           <img src={me} alt="" />
-          <span>Profile</span>
+          <span>Me</span>
         </div>
         </NavLink>
       </nav>
