@@ -56,6 +56,11 @@ h3 {
   margin: 0;
 }
 
+p{
+  margin: 0.5rem;
+}
+
+/* ----- speech bubble on the home ----- */
 .speech-bubble {
   background-color: var(--white);
   color: var(--black-text);
@@ -88,12 +93,8 @@ a {
 
 
 
-a:hover {
-  /* color: var(--dark-green); */
-}
-
 /* ---------- Form, Input, and Button Styling ---------- */
-textarea,
+/* textarea,
 input,
 button,
 select {
@@ -106,7 +107,7 @@ select {
   background-color: white;
   line-height: 1.5;
   margin: 0;
-}
+} */
 
 .button {
   background-color: var(--orange);
@@ -162,14 +163,18 @@ select {
   text-decoration: underline;
   border: none;
   transition: 0.1s;
+  box-shadow: none;
 }
 
-.delete-button:hover {
+.delete-button:hover,
+.delete-button:focus {
   background-color: var(--deep-purple);
   color: var(--white-text);
   text-decoration: none;
   transition: 0.1s;
   border: 0.125rem solid var(--white-text);
+  box-shadow: none; 
+  transform: none;
 
 }
 
@@ -270,6 +275,8 @@ select {
 }
 
 
+
+
 .link-card:hover {
   background-color: var(--white);
   transition: 0.1s;
@@ -283,14 +290,10 @@ select {
   transition: 0.1s;
   display: flex;
   justify-content: start;
+  align-items: center;
   gap: 0.5rem;
 }
 
-.link-card a:focus {
-  /* border-bottom: var(--black-text) 0.125rem solid; */
-  /* font-weight: bold;
-  transition: 0.1s; */
-}
 
 
 .link-card:has(a:focus) {
@@ -298,6 +301,19 @@ select {
   outline: 0.125rem var(--orange) solid;
   box-shadow: 0 0.1rem var(--navigation-purple) ;
   transform: translateY(0.3rem);
+}
+
+/* link cards for my entries */
+.link-card a {
+  color: var(--black-text);
+  font-weight: normal;
+}
+
+.entry-list {
+  list-style: none;
+  list-style-position: outside;
+  margin: 0;
+  padding: 0;
 }
 
 /* ----- button container for the homepage ----- */

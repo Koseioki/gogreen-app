@@ -99,7 +99,10 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
                   {key === "2" && <img src={neutral} alt="" />}
                   {key === "3" && <img src={good} alt="" />}
                   {key === "4" && <img src={veryGood} alt="" />}
-                  {option}
+                  {/* don't read it aloud */}
+                  {/* <span aria-hidden="true"> */}
+                    {option}
+                  {/* </span> */}
                 </label>
               </div>
             ))}
@@ -146,37 +149,37 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
               onChange={(e) => setText(e.target.value)}
             ></textarea>
 
-<div id="entry-options-button-container">
-            {/* icons */}
-            <div className="entry-options">
-              <button type="button">
-                <div>
-                  <img src={voice} alt="" />
-                  <span>Voice</span>
-                </div>
-              </button>
-              <button type="button">
-                <div>
-                  <img src={video} alt="" />
-                  <span>Video</span>
-                </div>
-              </button>
-              <button type="button">
-                <div>
-                  <img src={picture} alt="" />
-                  <span>Picture</span>
-                </div>
-              </button>
-              <button type="button">
-                <div>
-                  <img src={draw} alt="" />
-                  <span>Draw</span>
-                </div>
-              </button>
-            </div>
-            {/* only show the button when "text" has something */}
-            {text === "" ? null : <button type="button" className="button" onClick={handleAdd}>Add</button>}
-            {/* <button type="button" className="button" onClick={handleAdd}>Add</button> */}
+            <div id="entry-options-button-container">
+              {/* icons */}
+              <div className="entry-options">
+                <button type="button">
+                  <div>
+                    <img src={voice} alt="" />
+                    <span>Voice</span>
+                  </div>
+                </button>
+                <button type="button">
+                  <div>
+                    <img src={video} alt="" />
+                    <span>Video</span>
+                  </div>
+                </button>
+                <button type="button">
+                  <div>
+                    <img src={picture} alt="" />
+                    <span>Picture</span>
+                  </div>
+                </button>
+                <button type="button">
+                  <div>
+                    <img src={draw} alt="" />
+                    <span>Draw</span>
+                  </div>
+                </button>
+              </div>
+              {/* only show the button when "text" has something */}
+              {text === "" ? null : <button type="button" className="button" onClick={handleAdd}>Add</button>}
+              {/* <button type="button" className="button" onClick={handleAdd}>Add</button> */}
             </div>
 
           </div>

@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase-config";
 import formatDate from "../utils/formatDate";
+import back from "../images/back.svg";
 
 export default function EntryDetailPage() {
     const [entry, setEntry] = useState({});
@@ -67,7 +68,7 @@ export default function EntryDetailPage() {
 
     return (
         <main className="page" id="main-content">
-            <button className="back-button" onClick={handleBack}>Back</button>
+            <button className="back-button" onClick={handleBack}><img src={back} alt=""/> Back</button>
 
             <h1>{formatDate(entry.date)}</h1>
             <p>entry id: {entryId}</p>

@@ -6,11 +6,15 @@ import moon from "../images/moon.svg";
 import { NavLink } from "react-router-dom";
 
 export default function HomePage() {
+
+  useEffect(() => {
+    document.title = 'Home - Slowdiary';
+  }, []);
+
   const [name, setName] = useState("");
 
   // console.log(auth.currentUser?.uid);
   const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}.json`;
-  // const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/HlvRHr58C05guOLl64k5.json`;
   useEffect(() => {
     async function getUser() {
       const response = await fetch(url);
@@ -22,6 +26,31 @@ export default function HomePage() {
       }
     }
     getUser();
+
+    // check if the user has created an entry today
+    const entryUrl = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries.json`;
+    async function getEntry() {
+      const response = await fetch(entryUrl);
+      const data = await response.json();
+
+
+      if (data) {
+        const today = new Date().toISOString().split('T')[0];
+
+        const entryExists = Object.values(data).some(entry => entry.date.startsWith(today));
+
+        if (entryExists) {
+          // Entry with today's date exists
+          console.log("Entry with today's date exists");
+
+        } else {
+          // No entry with today's date
+          console.log("No entry with today's date");
+
+        }
+      }
+    }
+    getEntry();
   }, [url]);
 
   //Display greetings depending on the time
@@ -57,6 +86,8 @@ export default function HomePage() {
       </aside>
 
 
+
+
       <div id="button-container">
         <NavLink to="/new-entry" className="button">
           Write today&apos;s journal
@@ -66,6 +97,7 @@ export default function HomePage() {
           Set an alarm for reminder
         </NavLink>
       </div>
+
     </main>
   )
 }

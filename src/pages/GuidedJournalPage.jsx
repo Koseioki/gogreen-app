@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar";
@@ -8,6 +8,12 @@ import prompts from "../data/prompts";
 import back from "../images/back.svg";
 
 export default function Journal() {
+
+    useEffect(() => {
+      document.title = 'Guided Journal - Slowdiary';
+    }, []);
+  
+
   const { entryId } = useParams();
   const [currentStep, setCurrentStep] = useState(0);
   const navigate = useNavigate();
@@ -21,6 +27,7 @@ export default function Journal() {
     } else {
       // Optionally handle the beginning of the prompts
       // console.log("At the beginning of the prompts!");
+      alert("Your journal entry has been saved")
       navigate(-1);
     }
   }

@@ -1,4 +1,5 @@
 import { useNavigate, NavLink } from "react-router-dom";
+import { useEffect } from "react";
 import { auth } from "../firebase-config";
 import chat from "../images/chat.svg";
 import blank from "../images/blank.svg";
@@ -6,6 +7,12 @@ import blank from "../images/blank.svg";
 // import Nav from "../components/Nav";
 
 export default function NewEntryPage() {
+
+    useEffect(() => {
+        document.title = 'New entry - Slowdiary';
+    }, []);
+
+
     const navigate = useNavigate();
     // 
     const url = `https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries.json`;
@@ -41,24 +48,29 @@ export default function NewEntryPage() {
     return (
         <main className="page" id="main-content">
             <h1>New Entry</h1>
-            <article
+            <div
                 onClick={handleStartJournaling}
                 className="link-card">
-                    
+
                 <h2>
                     <NavLink>
-                    <span><img src={chat} alt=""/>
-                        Guided journalling</span>
+                        <span><img src={chat} alt="" />
+                            Guided journalling</span>
                     </NavLink>
                 </h2>
                 <p>Guided questions to inspire your thoughts</p>
-            </article>
+            </div>
 
-            <article className="link-card">
+            <div className="link-card">
 
-                <h2><img src={blank} alt=""/>Free journalling</h2>
+                <h2>
+                    <span>
+                        <img src={blank} alt="" />
+                        Free journalling
+                    </span>
+                </h2>
                 <p>An open page for your freeform writing</p>
-            </article>
+            </div>
         </main>
     );
 }

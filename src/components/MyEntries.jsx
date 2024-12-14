@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import formatDate  from "../utils/formatDate";
+import { NavLink } from "react-router-dom";
 
 import veryBad from "../images/very-bad.svg";
 import bad from "../images/bad.svg";
@@ -35,12 +36,15 @@ export default function MyEntries({ uid }) {
         <div>
             <h2>My Entries</h2>
             {/* <p>UID: {uid}</p> */}
-            <ul>
+            <ul className="entry-list">
                 {entries && Object.keys(entries).map(entryId => (
                     <li key={entryId}
                     onClick={() => handleClick(entryId)}
-                    className="link-card">
-                        <h3>
+                    className="link-card"
+                    >
+                        
+                        <h3><NavLink to = {`/my-journal/${entryId}`}>
+                        <span>
                             {/* show the mood assessment, and changed the colour of the icons (not smart) */}
                             {entries[entryId].mood === "0" && <img src={veryBad} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
                             {entries[entryId].mood === "1" && <img src={bad} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
@@ -49,9 +53,15 @@ export default function MyEntries({ uid }) {
                             {entries[entryId].mood === "4" && <img src={veryGood} alt="" style={{ filter: "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.5)" }} />}
                             
                             {formatDate(entries[entryId].date)}
-                            </h3>
-                        {/* show the first sentence from entries[entryId].negative[0] */}
-                        {/* {entries[entryId].negative[0].split(".")[0]}... */}
+                            </span>
+                            </NavLink></h3>
+                            
+                        {/* show the first sentence from entries[entryId].negative[0], if it exists */}
+                        <p>{entries[entryId].negative && entries[entryId].negative[0]}...</p>
+                    
+
+                        
+                        
                     </li>
                 ))}
             </ul>

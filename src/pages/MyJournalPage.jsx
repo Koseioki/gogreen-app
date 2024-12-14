@@ -4,6 +4,12 @@ import MyEntries from '../components/MyEntries';
 import { auth } from '../firebase-config';
 
 export default function MyJournalPage() {
+
+    useEffect(() => {
+        document.title = 'My journal - Slowdiary';
+      }, []);
+    
+
     const [hasEntries, setHasEntries] = useState(false);
     const [loading, setLoading] = useState(true);
 
