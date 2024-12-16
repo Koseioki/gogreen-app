@@ -81,10 +81,10 @@ export default function SignUpPage() {
           <p>{errorMessage}</p>
         </div>
         <div className="btns">
-          <button>Sign Up</button>
+          <button className="button">Sign Up</button>
         </div>
       </form>
-      <p className="text-center">
+      <p className="sign-up-link">
         Already have an account? <Link to="/sign-in">Sign In</Link>
       </p>
     </section>

@@ -1,17 +1,57 @@
-/* #sign-in-form,
+#sign-in-form,
 #sign-up-form {
-  width: 100%;
-  display: block;
-} */
+  /* width: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+}
 
 /* ---------- Login Form Styling ---------- */
 #sign-in-page form,
 #sign-up-page form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 85vh;
+
+  /* align-items: center; */
+  /* justify-co/ntent: center; */
+  /* height: 85vh; */
+}
+
+#sign-in-page form input,
+#sign-up-page form input {
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 1.25rem;
+  /* padding: 10px; */
+  border: var(--black-text) solid 0.0625rem;
+  /* border-radius: 5px; */
+}
+
+#sign-in-page form input:focus,
+#sign-up-page form input:focus {
+  border: var(--black-text) solid 0.125rem;
+  outline: var(--orange) solid 0.125rem
+}
+
+.sign-up-link {
+  margin: 1rem 0;
+}
+
+#sign-in-page a,
+#sign-up-page a {
+  color: var(--white-text);
+  text-decoration: underline;
+}
+
+#sign-in-page a:hover,
+#sign-up-page a:hover {
+  color: var(--white-text);
+  text-decoration: none;
+}
+
+#sign-in-page a:focus,
+#sign-up-page a:focus {
+  color: var(--white-text);
+  text-decoration: none;
+  outline: var(--orange) solid 0.125rem;
 }
 
 /* .error-message {
