@@ -138,22 +138,7 @@
     justify-content: space-between;
 }
 
-/* cards */
-.reflection-cards{
-    /* list-style: none; */
-    list-style-position: inside;
-    margin: 0;
-    padding: 0;
-}
-.reflection-cards li{
-    background-color: var(--light-purple);
-    border-radius: 1.25rem;
-    color: var(--black-text);
-    padding: 1rem;
-    margin: 1rem 0;
-    animation: fadeIn 1s forwards; /* Apply the fade-in animation */
 
-}
 
 /* entry option buttons */
 .entry-options{

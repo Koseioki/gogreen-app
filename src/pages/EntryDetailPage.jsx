@@ -10,7 +10,7 @@ import neutral from "../images/neutral.svg";
 import good from "../images/good.svg";
 import veryGood from "../images/very-good.svg";
 
-import edit from "../images/edit.svg";
+// import edit from "../images/edit.svg";
 
 export default function EntryDetailPage() {
     const [entry, setEntry] = useState({});
@@ -46,55 +46,55 @@ export default function EntryDetailPage() {
     }
 
     // delete the feelings
-    async function handleDeleteNote(event) {
-        //ask if the user is sure
-        const confirmDelete = window.confirm("Are you sure you want to delete this feeling?");
-        if (confirmDelete) {
-            const feeling = event.target.textContent;
-            //delete the feeling
-            const newNegative = entry.negative.filter(item => item !== feeling);
-            const newPositive = entry.positive.filter(item => item !== feeling);
-            await fetch(`https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries/${entryId}.json`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    negative: newNegative,
-                    positive: newPositive,
-                }),
-            });
-            alert("Feeling deleted");
-            //refresh the page
-            window.location.reload();
-        }
-    }
+    // async function handleDeleteNote(event) {
+    //     //ask if the user is sure
+    //     const confirmDelete = window.confirm("Are you sure you want to delete this feeling?");
+    //     if (confirmDelete) {
+    //         const feeling = event.target.textContent;
+    //         //delete the feeling
+    //         const newNegative = entry.negative.filter(item => item !== feeling);
+    //         const newPositive = entry.positive.filter(item => item !== feeling);
+    //         await fetch(`https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries/${entryId}.json`, {
+    //             method: "PATCH",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({
+    //                 negative: newNegative,
+    //                 positive: newPositive,
+    //             }),
+    //         });
+    //         alert("Feeling deleted");
+    //         //refresh the page
+    //         window.location.reload();
+    //     }
+    // }
 
     // edit note
-    async function handleEditNote(event) {
-        //edit the note selected
-        const note = event.target.textContent;
-        console.log(note);
-        const newNote = window.prompt("Edit your note", note);
-        if (newNote) {
-            const newNegative = entry.negative.map(item => item === note ? newNote : item);
-            const newPositive = entry.positive.map(item => item === note ? newNote : item);
-            await fetch(`https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries/${entryId}.json`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    negative: newNegative,
-                    positive: newPositive,
-                }),
-            });
-            alert("Note edited");
-            //refresh the page
-            window.location.reload
+    // async function handleEditNote(event) {
+    //     //edit the note selected
+    //     const note = event.target.textContent;
+    //     console.log(note);
+    //     const newNote = window.prompt("Edit your note", note);
+    //     if (newNote) {
+    //         const newNegative = entry.negative.map(item => item === note ? newNote : item);
+    //         const newPositive = entry.positive.map(item => item === note ? newNote : item);
+    //         await fetch(`https://gogreen-app-1d826-default-rtdb.firebaseio.com/users/${auth.currentUser?.uid}/entries/${entryId}.json`, {
+    //             method: "PATCH",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({
+    //                 negative: newNegative,
+    //                 positive: newPositive,
+    //             }),
+    //         });
+    //         alert("Note edited");
+    //         //refresh the page
+    //         window.location.reload
 
-        }
-    }
+    //     }
+    // }
 
 
         function handleBack() {
@@ -107,72 +107,61 @@ export default function EntryDetailPage() {
 
                 <h1 className="icon-and-text">
                     {/* show the mood assessment, and changed the colour of the icons (not smart) */}
-                    {entry.mood === "0" && <img src={veryBad} alt="" />}
-                    {entry.mood === "1" && <img src={bad} alt="" />}
-                    {entry.mood === "2" && <img src={neutral} alt="" />}
-                    {entry.mood === "3" && <img src={good} alt="" />}
-                    {entry.mood === "4" && <img src={veryGood} alt="" />}
+                    {entry && (
+                        <>
+                            {entry.mood === "0" && <img src={veryBad} alt="" />}
+                            {entry.mood === "1" && <img src={bad} alt="" />}
+                            {entry.mood === "2" && <img src={neutral} alt="" />}
+                            {entry.mood === "3" && <img src={good} alt="" />}
+                            {entry.mood === "4" && <img src={veryGood} alt="" />}
+                        </>
+                    )}
                     {formatDate(entry.date)}
                 </h1>
 
 
                 {/* list all the things inside entry.negative */}
-                <ul className="entry-list">
+                <ul className="reflection-cards">
                     {entry.negative && entry.negative.map((item, index) => (
                         <li
-                            className="link-card icon-and-text"
-                            onClick={handleEditNote}
-                            tabIndex={0}
+                            // className="link-card icon-and-text"
+                            // onClick={handleEditNote}
+                            // tabIndex={0}
                             // excute when the user press enter
-                            onKeyDown={event => {
-                                if (event.key === "Enter") {
-                                    handleEditNote(event);
-                                }
-                            }}
+                            // onKeyDown={event => {
+                            //     if (event.key === "Enter") {
+                            //         handleEditNote(event);
+                            //     }
+                            // }}
 
                             key={index}
                         >
-                            <span
-                                // read out "edit" + the content of the list item
-                                aria-label={`edit, ${item}`}>
-                                <span
-                                    // hide the actual text
-                                    aria-hidden="true">
-
+                 
                                     {item}
-                                </span>
-                            </span>
-                            <img src={edit} alt="" />
+           
                         </li>
                     ))}
                 </ul>
                 {/* the same thing to the positive */}
-                <ul className="entry-list">
+                <ul className="reflection-cards">
                     {entry.positive && entry.positive.map((item, index) => (
                         <li
-                            className="link-card icon-and-text"
-                            onClick={handleDeleteNote}
-                            tabIndex={0}
+                            // className="link-card icon-and-text"
+                            // onClick={handleDeleteNote}
+                            // tabIndex={0}
                             // excute when the user press enter
-                            onKeyDown={event => {
-                                if (event.key === "Enter") {
-                                    handleDeleteNote(event);
-                                }
-                            }}
+                            // onKeyDown={event => {
+                            //     if (event.key === "Enter") {
+                            //         handleDeleteNote(event);
+                            //     }
+                            // }}
 
                             key={index}
                         >
-                            <span
-                                // read out "edit" + the content of the list item
-                                aria-label={`edit, ${item}`}>
-                                <span
-                                    // hide the actual text
-                                    aria-hidden="true">
+                    
 
                                     {item}
-                                </span>
-                            </span>
-                            <img src={edit} alt="" />
+                            
                         </li>
                     ))}
                 </ul>
