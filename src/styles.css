@@ -124,6 +124,8 @@ select {
 .button {
   background-color: var(--orange);
   color: var(--black-text);
+  font-weight: normal;
+
   cursor: pointer;
   padding: 1rem;
   width: 100%;

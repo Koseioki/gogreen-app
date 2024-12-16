@@ -152,6 +152,7 @@
     box-shadow: none;
     cursor: pointer;
     padding: 0.5rem;
+    color: var(--black-text);
 }
 
 .entry-options button:focus{
