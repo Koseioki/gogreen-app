@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import MoodTracker from '../components/MoodTracker';
 import MyEntries from '../components/MyEntries';
 import { auth } from '../firebase-config';
@@ -7,8 +8,8 @@ export default function MyJournalPage() {
 
     useEffect(() => {
         document.title = 'My journal - SlowDiary';
-      }, []);
-    
+    }, []);
+
 
     const [hasEntries, setHasEntries] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -27,7 +28,7 @@ export default function MyJournalPage() {
     if (loading) {
         return <main className="page" id="main-content">
             <p>Loading...</p>
-            </main>;
+        </main>;
     }
 
     return (
@@ -40,7 +41,15 @@ export default function MyJournalPage() {
                     <MyEntries uid={auth.currentUser?.uid} />
                 </>
             ) : (
-                <p>Start your journaling journey by creating your first entry</p>
+                <>
+                    <p>Start your journaling journey by creating your first entry</p>
+                    <div id="button-container">
+
+                        <NavLink to="/new-entry" className="button">
+                            Write today&apos;s journal
+                        </NavLink>
+                    </div>
+                </>
             )}
         </main>
     );

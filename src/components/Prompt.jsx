@@ -13,6 +13,10 @@ import neutral from "../images/neutral.svg";
 import good from "../images/good.svg";
 import veryGood from "../images/very-good.svg";
 
+import mindyHeart from "../images/mindy-heart.svg";
+import mindyFlower from "../images/mindy-flower.svg";
+import mindy from "../images/mindy.svg";
+
 export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
   const [negative, setNegative] = useState([]);
@@ -196,9 +200,26 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
       }
 
       {
-        (currentStep === 2 || currentStep === 4) && (
+        (currentStep === 2) && (
+          <div>
+          <div className="mindy-illustrations">
+            <img src={mindyFlower} alt="" />
+          </div>
 
           <button className="button" onClick={onNext}>Next step</button>
+          </div>
+        )
+      }
+
+{
+        (currentStep === 4) && (
+          <div>
+          <div className="mindy-illustrations">
+            <img src={mindyHeart} alt="" />
+          </div>
+
+          <button className="button" onClick={onNext}>Next step</button>
+          </div>
         )
       }
 
@@ -225,7 +246,12 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
 
       {
         currentStep === 6 && (
+          <div>
+            <div className="mindy-illustrations">
+              <img src={mindy} alt="" />
+            </div>
           <button className="button" onClick={onNext}>Back to home</button>
+          </div>
         )
       }
 

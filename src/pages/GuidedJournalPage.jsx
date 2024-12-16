@@ -23,7 +23,11 @@ export default function Journal() {
   const handleBack = () => {
     // Move to the previous prompt
     if (currentStep > 0) {
+
       setCurrentStep(currentStep - 1);
+      // move to "#main-content"
+      // document.getElementById("main-content").scrollIntoView();
+      
     } else {
       // Optionally handle the beginning of the prompts
       // console.log("At the beginning of the prompts!");

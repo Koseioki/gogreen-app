@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { auth } from "../firebase-config";
 import chat from "../images/chat.svg";
 import blank from "../images/blank.svg";
+import mindyNote from "../images/mindy-note.svg";
 
 // import Nav from "../components/Nav";
 
@@ -70,6 +71,10 @@ export default function NewEntryPage() {
                     </span>
                 </h2>
                 <p>An open page for your freeform writing</p>
+            </div>
+
+<div className="mindy-illustrations">
+            <img src={mindyNote} alt="" />
             </div>
         </main>
     );

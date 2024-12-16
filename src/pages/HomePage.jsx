@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { auth } from "../firebase-config";
 import { useState } from "react";
-import moon from "../images/moon.svg";
+import mindy from "../images/mindy.svg";
 
 import { NavLink } from "react-router-dom";
 
@@ -82,7 +82,7 @@ export default function HomePage() {
           <h2>{greeting}, {name}.</h2>
           <p>{randomSentence}</p>
         </div>
-        <img src={moon} alt="Moon" />
+        <img src={mindy} alt="" />
       </aside>
 
 
