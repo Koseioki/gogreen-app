@@ -44,7 +44,7 @@ export default function Journal() {
     } else {
       // Optionally handle the end of the prompts, e.g., navigate to a summary page
       // console.log("All prompts completed!");
-      navigate("/");
+      navigate("/my-journal");
       alert("Today's entry is created");
     }
   };

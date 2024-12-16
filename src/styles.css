@@ -348,22 +348,39 @@ select {
   color: var(--black-text);
   padding: 1rem;
   margin: 1rem 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  /* gap: 0.5rem; */
   animation: fadeIn 1s forwards;
   /* Apply the fade-in animation */
+}
 
+.reflection-cards button {
+  /* delete button */
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  aspect-ratio: 1/1;
+}
+
+.reflection-cards button:hover,
+.reflection-cards button:focus {
+  outline: var(--deep-purple) 0.125rem solid;
+  background-color: var(--white-text);
 
 }
 
-.reflection-cards li:focus,
+/* .reflection-cards li:focus,
 .reflection-cards li:hover {
   background-color: var(--white-text);
   outline: 0.125rem var(--orange) solid;
-}
+} */
+
+
 
 
 .entry-list {

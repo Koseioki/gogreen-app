@@ -23,8 +23,8 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
   const [negative, setNegative] = useState([]);
   const [positive, setPositive] = useState([]);
-  console.log("negative = " + negative)
-  console.log("positive = " + positive)
+  // console.log("negative = " + negative)
+  // console.log("positive = " + positive)
 
 
   // temporary text state for adding new negative or positive
@@ -88,17 +88,19 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
     const confirmDelete = window.confirm("Are you sure you want to delete this note?");
     if (confirmDelete) {
       // delete the note from negative or positive array
-      const note = event.target.textContent;
+      const note = event.currentTarget.getAttribute('data-note');
+      console.log("Note to delete:", note);
+      console.log("Current step:", currentStep);
       if (currentStep === 1) {
         const newNegative = negative.filter(item => item !== note);
+        console.log("New negative array:", newNegative);
         setNegative(newNegative);
       } else if (currentStep === 3) {
         const newPositive = positive.filter(item => item !== note);
+        console.log("New positive array:", newPositive);
         setPositive(newPositive);
       }
     }
-
-
   }
 
 
@@ -152,18 +154,16 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
           {currentStep === 1 && (
             <ul className="reflection-cards">
               {negative.map((item, key) => (
+              
                 <li
-                  onClick={handleDelete}
-                  onKeyDown={event => {
-                    if (event.key === "Enter") {
-                      handleDelete(event);
-                    }
-                  }}
-                  tabIndex={0}
                   key={key}>
                   {item}
+                  <button type="button" onClick={handleDelete} data-note={item}>
                   <img src={deleteIcon} alt="delete" />
+                  </button>
+
                 </li>
+                
 
               ))}
             </ul>
@@ -173,16 +173,11 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
             <ul className="reflection-cards">
               {positive.map((item, key) => (
                 <li
-                  onClick={handleDelete}
-                  onKeyDown={event => {
-                    if (event.key === "Enter") {
-                      handleDelete(event);
-                    }
-                  }}
-                  tabIndex={0}
                   key={key}>
                   {item}
+                  <button type="button" onClick={handleDelete} data-note={item}>
                   <img src={deleteIcon} alt="delete" />
+                  </button>
                 </li>
 
               ))}
@@ -297,7 +292,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
             <div className="mindy-illustrations">
               <img src={mindy} alt="" />
             </div>
-            <button className="button" onClick={onNext}>Back to home</button>
+            <button className="button" onClick={onNext}>Go to my journal</button>
           </div>
         )
       }
