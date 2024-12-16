@@ -68,7 +68,7 @@ h3 {
   margin: 0;
 }
 
-p{
+p {
   margin: 0.5rem 0;
 }
 
@@ -129,13 +129,13 @@ select {
   width: 100%;
   border-radius: 1.25rem;
   transition: 0.1s;
-  box-shadow: 0 0.4rem var(--dark-orange) ;
+  box-shadow: 0 0.4rem var(--dark-orange);
 }
 
 .button:hover {
   background-color: var(--orange-hover);
   transition: 0.1s;
-  box-shadow:  0 0.1rem var(--dark-orange) ;
+  box-shadow: 0 0.1rem var(--dark-orange);
   transform: translateY(0.3rem);
 
 }
@@ -144,7 +144,7 @@ select {
   /* outline: 0.125rem var(--black-text) solid; */
   background-color: var(--orange-hover);
   transition: 0.1s;
-  box-shadow:  0 0.1rem var(--dark-orange) ;
+  box-shadow: 0 0.1rem var(--dark-orange);
   transform: translateY(0.3rem);
 }
 
@@ -185,7 +185,7 @@ select {
   text-decoration: none;
   transition: 0.1s;
   border: 0.125rem solid var(--white-text);
-  box-shadow: none; 
+  box-shadow: none;
   transform: none;
 
 }
@@ -221,6 +221,16 @@ select {
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 
@@ -283,7 +293,7 @@ select {
   border-radius: 1.25rem;
   cursor: pointer;
   transition: 0.1s;
-  box-shadow: 0 0.4rem var(--navigation-purple) ;
+  box-shadow: 0 0.4rem var(--navigation-purple);
 }
 
 
@@ -292,7 +302,7 @@ select {
 .link-card:hover {
   background-color: var(--white);
   transition: 0.1s;
-  box-shadow: 0 0.1rem var(--navigation-purple) ;
+  box-shadow: 0 0.1rem var(--navigation-purple);
   transform: translateY(0.3rem);
 
 }
@@ -311,7 +321,7 @@ select {
 .link-card:has(a:focus) {
   background-color: var(--white);
   outline: 0.125rem var(--orange) solid;
-  box-shadow: 0 0.1rem var(--navigation-purple) ;
+  box-shadow: 0 0.1rem var(--navigation-purple);
   transform: translateY(0.3rem);
 }
 
@@ -325,20 +335,34 @@ select {
 
 
 /* note cards */
-.reflection-cards{
+.reflection-cards {
   /* list-style: none; */
   list-style-position: inside;
   margin: 0;
   padding: 0;
 }
-.reflection-cards li{
+
+.reflection-cards li {
   background-color: var(--light-purple);
   border-radius: 1.25rem;
   color: var(--black-text);
   padding: 1rem;
   margin: 1rem 0;
-  animation: fadeIn 1s forwards; /* Apply the fade-in animation */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeIn 1s forwards;
+  /* Apply the fade-in animation */
 
+
+}
+
+.reflection-cards li:focus,
+.reflection-cards li:hover {
+  background-color: var(--white-text);
+  outline: 0.125rem var(--orange) solid;
 }
 
 

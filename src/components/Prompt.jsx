@@ -17,10 +17,15 @@ import mindyHeart from "../images/mindy-heart.svg";
 import mindyFlower from "../images/mindy-flower.svg";
 import mindy from "../images/mindy.svg";
 
+import deleteIcon from "../images/delete.svg";
+
 export default function Prompt({ entryId, currentStep, prompt, onNext }) {
   const [mood, setMood] = useState("");
   const [negative, setNegative] = useState([]);
   const [positive, setPositive] = useState([]);
+  console.log("negative = " + negative)
+  console.log("positive = " + positive)
+
 
   // temporary text state for adding new negative or positive
   const [text, setText] = useState("");
@@ -77,6 +82,26 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
 
   }
 
+  // delete the note
+  async function handleDelete(event) {
+    // ask if the user is sure
+    const confirmDelete = window.confirm("Are you sure you want to delete this note?");
+    if (confirmDelete) {
+      // delete the note from negative or positive array
+      const note = event.target.textContent;
+      if (currentStep === 1) {
+        const newNegative = negative.filter(item => item !== note);
+        setNegative(newNegative);
+      } else if (currentStep === 3) {
+        const newPositive = positive.filter(item => item !== note);
+        setPositive(newPositive);
+      }
+    }
+
+
+  }
+
+
   return (
     <div>
       <h2 className="prompts-headings">{prompt.text}</h2>
@@ -105,7 +130,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
                   {key === "4" && <img src={veryGood} alt="" />}
                   {/* don't read it aloud */}
                   {/* <span aria-hidden="true"> */}
-                    {option}
+                  {option}
                   {/* </span> */}
                 </label>
               </div>
@@ -127,7 +152,18 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
           {currentStep === 1 && (
             <ul className="reflection-cards">
               {negative.map((item, key) => (
-                <li key={key}>{item}</li>
+                <li
+                  onClick={handleDelete}
+                  onKeyDown={event => {
+                    if (event.key === "Enter") {
+                      handleDelete(event);
+                    }
+                  }}
+                  tabIndex={0}
+                  key={key}>
+                  {item}
+                  <img src={deleteIcon} alt="delete" />
+                </li>
 
               ))}
             </ul>
@@ -136,7 +172,18 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
           {currentStep === 3 && (
             <ul className="reflection-cards">
               {positive.map((item, key) => (
-                <li key={key}>{item}</li>
+                <li
+                  onClick={handleDelete}
+                  onKeyDown={event => {
+                    if (event.key === "Enter") {
+                      handleDelete(event);
+                    }
+                  }}
+                  tabIndex={0}
+                  key={key}>
+                  {item}
+                  <img src={deleteIcon} alt="delete" />
+                </li>
 
               ))}
             </ul>
@@ -202,23 +249,23 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
       {
         (currentStep === 2) && (
           <div>
-          <div className="mindy-illustrations">
-            <img src={mindyFlower} alt="" />
-          </div>
+            <div className="mindy-illustrations">
+              <img src={mindyFlower} alt="" />
+            </div>
 
-          <button className="button" onClick={onNext}>Next step</button>
+            <button className="button" onClick={onNext}>Next step</button>
           </div>
         )
       }
 
-{
+      {
         (currentStep === 4) && (
           <div>
-          <div className="mindy-illustrations">
-            <img src={mindyHeart} alt="" />
-          </div>
+            <div className="mindy-illustrations">
+              <img src={mindyHeart} alt="" />
+            </div>
 
-          <button className="button" onClick={onNext}>Next step</button>
+            <button className="button" onClick={onNext}>Next step</button>
           </div>
         )
       }
@@ -250,7 +297,7 @@ export default function Prompt({ entryId, currentStep, prompt, onNext }) {
             <div className="mindy-illustrations">
               <img src={mindy} alt="" />
             </div>
-          <button className="button" onClick={onNext}>Back to home</button>
+            <button className="button" onClick={onNext}>Back to home</button>
           </div>
         )
       }
