@@ -27,8 +27,10 @@ export default function EntryDetailPage() {
         }
         getEntry();
         // console.log(entry);
-    }
-        , [entryId]);
+    }, [entryId, auth.currentUser]);
+
+        
+
 
     // delete the entry
     async function handleDelete() {
@@ -105,17 +107,20 @@ export default function EntryDetailPage() {
             <main className="page" id="main-content">
                 <button className="back-button" onClick={handleBack}><img src={back} alt="" /> Back</button>
 
+{/* read only when {entry} exists */}
+                {entry && (
+                    <>
                 <h1 className="icon-and-text">
                     {/* show the mood assessment, and changed the colour of the icons (not smart) */}
-                    {entry && (
-                        <>
+                    
+                        
                             {entry.mood === "0" && <img src={veryBad} alt="" />}
                             {entry.mood === "1" && <img src={bad} alt="" />}
                             {entry.mood === "2" && <img src={neutral} alt="" />}
                             {entry.mood === "3" && <img src={good} alt="" />}
                             {entry.mood === "4" && <img src={veryGood} alt="" />}
-                        </>
-                    )}
+                        
+                    
                     {formatDate(entry.date)}
                 </h1>
 
@@ -165,7 +170,8 @@ export default function EntryDetailPage() {
                         </li>
                     ))}
                 </ul>
-
+                </>
+                )}
 
                 {/* delete button */}
                 <button className="button delete-button" onClick={handleDelete}>Delete this entry</button>
