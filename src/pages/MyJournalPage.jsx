@@ -22,8 +22,10 @@ export default function MyJournalPage() {
             setHasEntries(!!data);
             setLoading(false);
         }
-        checkEntries();
-    }, []);
+        if (auth.currentUser?.uid) {
+            checkEntries();
+        }
+    }, [auth.currentUser?.uid]);
 
     if (loading) {
         return <main className="page" id="main-content">

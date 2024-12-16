@@ -308,12 +308,16 @@ select {
 
 
 
-.link-card:has(a:focus) {
+.link-card:has(a:focus),
+/* used for entry detail page */
+.link-card:focus  {
   background-color: var(--white);
   outline: 0.125rem var(--orange) solid;
   box-shadow: 0 0.1rem var(--navigation-purple) ;
   transform: translateY(0.3rem);
 }
+
+
 
 /* link cards for my entries */
 .link-card a {
@@ -342,4 +346,12 @@ select {
   /* align-items: center; */
   text-align: center;
   /* border: red 1px solid; */
+}
+
+/* h1 entry detail page */
+.icon-and-text {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 0.5rem;
 }

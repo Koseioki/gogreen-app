@@ -12,7 +12,7 @@ import GuidedJournalPage from "./pages/GuidedJournalPage";
 
 import MyJournalPage from "./pages/MyJournalPage";
 import EntryDetailPage from "./pages/EntryDetailPage"
-import ProfilePage from "./pages/ProfilePage";
+// import ProfilePage from "./pages/ProfilePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 
@@ -49,7 +49,7 @@ export default function App() {
         <Route path="/guided-journal/:entryId" element={<GuidedJournalPage />} />
         <Route path="/my-journal" element={<MyJournalPage />} />
         <Route path="/my-journal/:entryId" element={<EntryDetailPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        {/* <Route path="/profile" element={<ProfilePage />} /> */}
 
       </Routes>
     </>
