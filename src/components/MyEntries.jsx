@@ -23,7 +23,10 @@ export default function MyEntries({ uid }) {
         }
         getEntries();
 
-    }, [url]);
+    },
+    // reload when landing on this page
+    [url]
+);
 
     function handleClick(entryId) {
         navigate(`/my-journal/${entryId}`);
